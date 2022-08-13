@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\felix\\Desktop\\Projects\\CSHO\\CSHO.csproj",
+      "projectUniqueName": "C:\\Users\\felix\\Desktop\\CSHO-main\\CSHO-main\\CSHO.csproj",
       "projectName": "CSHO",
-      "projectPath": "C:\\Users\\felix\\Desktop\\Projects\\CSHO\\CSHO.csproj",
+      "projectPath": "C:\\Users\\felix\\Desktop\\CSHO-main\\CSHO-main\\CSHO.csproj",
       "packagesPath": "C:\\Users\\felix\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\felix\\Desktop\\Projects\\CSHO\\obj\\",
+      "outputPath": "C:\\Users\\felix\\Desktop\\CSHO-main\\CSHO-main\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\felix\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -58,7 +58,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
