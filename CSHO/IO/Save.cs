@@ -13,6 +13,8 @@ namespace CSHO{
             Archive.Update();
             Archive.Save(file);
 
+            file.Dispose();
+
             return "";
         }
     }

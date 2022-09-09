@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\felix\\Desktop\\CSHO-main\\CSHO-main\\CSHO.csproj": {}
+    "C:\\Users\\felix\\Desktop\\Projects\\CSHONew\\CSHO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\felix\\Desktop\\CSHO-main\\CSHO-main\\CSHO.csproj": {
+    "C:\\Users\\felix\\Desktop\\Projects\\CSHONew\\CSHO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\felix\\Desktop\\CSHO-main\\CSHO-main\\CSHO.csproj",
+        "projectUniqueName": "C:\\Users\\felix\\Desktop\\Projects\\CSHONew\\CSHO.csproj",
         "projectName": "CSHO",
-        "projectPath": "C:\\Users\\felix\\Desktop\\CSHO-main\\CSHO-main\\CSHO.csproj",
+        "projectPath": "C:\\Users\\felix\\Desktop\\Projects\\CSHONew\\CSHO.csproj",
         "packagesPath": "C:\\Users\\felix\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felix\\Desktop\\CSHO-main\\CSHO-main\\obj\\",
+        "outputPath": "C:\\Users\\felix\\Desktop\\Projects\\CSHONew\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\felix\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

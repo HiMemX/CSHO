@@ -19,6 +19,12 @@ namespace CSHO
 
             byte[] id = new byte[8] {0x00, 0x00, 0x01, 0x03, 0x00, 0x00, 0x00, 0x2E}; // Specifying an AssetID (AssetIDs are byte arrays)
             HoArchive.TOCEntry asset = Handler.GetAsset(id); // Get Asset
+
+            if (asset == null){
+                Console.WriteLine("Asset not found!");
+                Environment.Exit(1);
+            }
+
             HoArchive.NameTableEntry nametableentry = Handler.GetNameEntry(id); // Get NameTableEntry (From Debug Parcels)
 
 
@@ -41,9 +47,9 @@ namespace CSHO
             Console.WriteLine("Type: " + Convert.ToHexString(asset.wmlTypeID));
             
             // Modify your archive
-            Handler.Archive.Header.user = "Your name here!";
-            Handler.Archive.Header.comment = "Your comment here!";
-            Handler.Archive.Header.creator = "CSHO baby";
+            Handler.Archive.Header.user = "CorruptMem";
+            Handler.Archive.Header.comment = "CSHO Testing";
+            Handler.Archive.Header.creator = "CSHO.Handler.Save()";
 
             // Save it. No Update() needed! (Jk it's done by the handler but shhh)
             Handler.Save();
