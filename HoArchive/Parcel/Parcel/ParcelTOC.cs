@@ -5,12 +5,12 @@ namespace HoArchive{
     public class ParcelTOC{
         public TOCHeader Header;
         public List<TOCEntry> Entries = new List<TOCEntry>();
-        public ParcelTOC(BinaryReaderEndian file, uint DataPtr){
+        public ParcelTOC(BinaryReaderEndian file, uint DataPtr, string target){
             Header = new TOCHeader(file);
 
             TOCEntry Entry;
             for (int element=0; element<Header.elementCount; element++){
-                Entry = new TOCEntry(file, DataPtr);
+                Entry = new TOCEntry(file, DataPtr, target);
                 DataPtr += Entry.elementSize;
 
                 Entries.Add(Entry);

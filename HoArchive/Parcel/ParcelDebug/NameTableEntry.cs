@@ -1,18 +1,18 @@
 
 namespace HoArchive{
     public class NameTableEntry{
-        public byte[] uidAsset = new byte[8];
+        public ulong uidAsset;
         public uint nameOffset;
-        public byte[] typeID = new byte[4];
+        public uint typeID;
         public uint[] unknown = new uint[4];
         
         public string name;
 
         public NameTableEntry(BinaryReaderEndian file){
             long baseposition = file.BaseStream.Position;
-            uidAsset = file.ReadBytesE(8);
+            uidAsset = file.ReadUInt64E();
             nameOffset = file.ReadUInt32E();
-            typeID = file.ReadBytesE(4);
+            typeID = file.ReadUInt32E();
 
             for (int i=0; i<4; i++){
                 unknown[i] = file.ReadUInt32E();

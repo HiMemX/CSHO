@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace HoArchive{
     public class Parcel : ParcelBase{
         public List<ParcelTOC> ParcelTOCs = new List<ParcelTOC>();
-        public Parcel(BinaryReaderEndian file, ParcelSliceMeta SliceMeta){
+        public Parcel(BinaryReaderEndian file, ParcelSliceMeta SliceMeta, string target){
             uint baseposition = (uint)file.BaseStream.Position;
             uint DataPtr;
             uint MetaPtr;
@@ -12,7 +12,7 @@ namespace HoArchive{
                 MetaPtr = SliceMeta.EntriesParcelTOC[i].sliceStart  + baseposition;
 
                 file.BaseStream.Position = MetaPtr;
-                ParcelTOCs.Add(new ParcelTOC(file, DataPtr));
+                ParcelTOCs.Add(new ParcelTOC(file, DataPtr, target));
 
 
 

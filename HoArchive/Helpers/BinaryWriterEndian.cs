@@ -73,6 +73,14 @@ namespace HoArchive{
             Write(bytes);
         }
 
+        public void WriteE(float input){
+            byte[] bytes = BitConverter.GetBytes(input);
+            if (endianness == false){
+                bytes = bytes.Reverse().ToArray();
+            }
+            Write(bytes);
+        }
+
 
         public void PadAlign(uint align, byte pad){
             PadTo(MathTools.RoundUpTo((uint)BaseStream.Position, align), pad);

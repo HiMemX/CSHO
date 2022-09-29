@@ -8,7 +8,7 @@ namespace HoArchive{
             Header = new Header(file);
 
             file.BaseStream.Position = Header.startSector * Header.sectorSize;
-            MasterTable = new Table(file, Header.sectorSize);
+            MasterTable = new Table(file, Header.sectorSize, Header.target);
         }
 
         public void Update(){

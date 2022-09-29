@@ -19,16 +19,16 @@ namespace CSHO{
             return assets;
         }
 
-        public List<byte> GetAssetData(byte[] AssetID){
+        public List<byte> GetAssetData(ulong AssetID){
             HoArchive.TOCEntry asset = GetAsset(AssetID);
             if (asset == null){return new List<byte>();}
             return asset.data;
         }
 
-        public HoArchive.TOCEntry GetAsset(byte[] AssetID){
+        public HoArchive.TOCEntry GetAsset(ulong AssetID){
             List<HoArchive.TOCEntry> assets = GetAssets();
             foreach (HoArchive.TOCEntry entry in assets){
-                if (entry.uidSelf.SequenceEqual(AssetID)){return entry;}
+                if (entry.uidSelf == AssetID){return entry;}
             }
             return null;
         }
@@ -47,15 +47,15 @@ namespace CSHO{
             return entries;
         }
 
-        public HoArchive.NameTableEntry GetNameEntry(byte[] AssetID){
+        public HoArchive.NameTableEntry GetNameEntry(ulong AssetID){
             List<HoArchive.NameTableEntry> entries = GetNameEntries();
             foreach (HoArchive.NameTableEntry entry in entries){
-                if (entry.uidAsset.SequenceEqual(AssetID)){return entry;}
+                if (entry.uidAsset == AssetID){return entry;}
             }
             return null;
         }
 
-        public string GetName(byte[] AssetID){
+        public string GetName(ulong AssetID){
             HoArchive.NameTableEntry entry = GetNameEntry(AssetID);
             if (entry == null){return null;}
             return entry.name;

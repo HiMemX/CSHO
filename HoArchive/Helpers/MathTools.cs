@@ -1,9 +1,21 @@
 
 namespace HoArchive{
-    public struct float3{
+    public class float3{
         public float x;
         public float y;
         public float z;
+
+        public float3(BinaryReaderEndian file){
+            x = file.ReadFloat32E();
+            y = file.ReadFloat32E();
+            z = file.ReadFloat32E();
+        }
+
+        public void Save(BinaryWriterEndian file){
+            file.WriteE(x);
+            file.WriteE(y);
+            file.WriteE(z);
+        }
     }
 
     public static class MathTools{

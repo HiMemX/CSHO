@@ -34,6 +34,13 @@ namespace HoArchive{
         }
 
 
+        public float ReadFloat32E(){
+            uint value = ReadUInt32();
+            if (endianness)
+                return BitConverter.Int32BitsToSingle((int)value);
+            return BitConverter.Int32BitsToSingle(BitConverter.ToInt16(BitConverter.GetBytes(value).Reverse().ToArray(), 0));
+        }
+
 
         public BinaryReaderEndian(string path, bool endian) : base(new FileStream(path, FileMode.Open)){
             endianness = endian;

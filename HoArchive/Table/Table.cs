@@ -7,7 +7,7 @@ namespace HoArchive{
         public StringTable StringTable;
         public List<List<SliceMeta>> MetaTableEntries = new List<List<SliceMeta>>();
         public List<ParcelBase> Parcels = new List<ParcelBase>();
-        public Table(BinaryReaderEndian file, uint sectorSize){
+        public Table(BinaryReaderEndian file, uint sectorSize, string target){
             long baseposition = file.BaseStream.Position;
 
             // Table Header
@@ -49,7 +49,7 @@ namespace HoArchive{
                 file.BaseStream.Position = TableEntries[i].startSector * sectorSize;
                 switch (TableEntries[i].sectionType){
                     case "SECT":
-                        Parcels.Add(new Table(file, sectorSize));
+                        Parcels.Add(new Table(file, sectorSize, target));
                         break;
                     
                     case "PD  ":
@@ -57,7 +57,7 @@ namespace HoArchive{
                         break;
 
                     default:
-                        Parcels.Add(new Parcel(file, (ParcelSliceMeta)MetaTableEntries[i][0]));
+                        Parcels.Add(new Parcel(file, (ParcelSliceMeta)MetaTableEntries[i][0], target));
                         break;
                 }
             }
