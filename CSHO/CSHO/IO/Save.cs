@@ -9,7 +9,7 @@ namespace CSHO{
             HoArchive.BinaryWriterEndian file = null;
             
             try{file = new HoArchive.BinaryWriterEndian(path, endian);}
-            catch(FileNotFoundException){ file.Dispose(); return "ERR_p_NOT_FOUND"; }
+            catch(FileNotFoundException){ file.Dispose(); return "ERR_FILE_NOT_FOUND"; }
             catch(DirectoryNotFoundException) { file.Dispose();  return "ERR_DIRECTORY_NOT_FOUND";}
             catch(IOException)          { file.Dispose();  return "ERR_IO_EXCEPTION"; }
 
