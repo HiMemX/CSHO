@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 
 namespace HoArchive{
     public class ParcelDebug : ParcelBase{
@@ -64,6 +65,10 @@ namespace HoArchive{
                 entry.Save(file);
             }
             file.PadAlign(sectorSize, 0x33);
+        }
+
+        public void SaveLSET(StreamWriter file, string indent, string tag, List<NameTableEntry> nameTableEntries, TableEntry entry = null){
+            
         }
     }
 }

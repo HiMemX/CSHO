@@ -45,6 +45,7 @@ namespace HoArchive{
             Write(bytes);
         }
         
+
         public void WriteE(byte input){
             Write(input);
         }

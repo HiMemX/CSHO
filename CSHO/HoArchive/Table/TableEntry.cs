@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.IO;
 
 namespace HoArchive{
     public class TableEntry{ // Updated members get overwritten anyways so there isn't any point in setting them in the first place
@@ -112,6 +113,26 @@ namespace HoArchive{
             file.WriteE(reserved);
         }
 
+        public void SaveLSET(StreamWriter file, string indent){
+            file.WriteLine(indent + "TableEntry{");
+            file.WriteLine(indent + "   packLangID:      " + packLangID.ToString());
+            file.WriteLine(indent + "   parcelType:      " + parcelType.ToString());
+            file.WriteLine(indent + "   fromNameHash:    " + fromNameHash);
+            file.WriteLine(indent + "   attributeFlags:  " + attributeFlags);
+            file.WriteLine(indent + "   externName:      " + externName);
+
+            file.WriteLine(indent + "}");
+        }
+
+        public string getArgs(){
+            string args = "";
+            args += "packLangID=" + packLangID;
+            args += ", parcelType=" + parcelType;
+            args += ", fromNameHash=" + fromNameHash;
+            args += ", attributeFlags=" + attributeFlags;
+            args += ", externName=" + externName;
+            return args;
+        }
         
     }
 }

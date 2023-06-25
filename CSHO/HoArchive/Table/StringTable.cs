@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System;
+using System.IO;
 
 namespace HoArchive{
     public class StringTable{
@@ -42,6 +42,15 @@ namespace HoArchive{
             if(writeDomainString){
                 file.WriteString(DomainString + "\0");
             }
+        }
+
+        public void SaveLSET(StreamWriter file, string indent){
+            file.WriteLine(indent + "StringTable(DomainString='" + DomainString + "'){");
+            foreach(string entry in StringTableEntries){
+                file.WriteLine(indent + "   " + entry);
+            }
+
+            file.WriteLine(indent + "}");
         }
     }
 }

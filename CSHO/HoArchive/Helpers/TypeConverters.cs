@@ -92,4 +92,58 @@ namespace HoArchive{
         }
     }
 
+    public class RGBA8888Converter: System.ComponentModel.ExpandableObjectConverter
+    {
+        public override bool CanConvertFrom( System.ComponentModel.ITypeDescriptorContext context, Type sourceType )
+        {
+            return sourceType == typeof( string );
+        }
+
+        public override object ConvertFrom( System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value )
+        {
+            try
+            {
+                string[] tokens = (( string ) value).Split( "; ");
+                return new HoArchive.RGBA8888( byte.Parse( tokens[0]), byte.Parse( tokens[1]), byte.Parse( tokens[2]), byte.Parse(tokens[3]));
+            }
+            catch
+            {
+                return context.PropertyDescriptor.GetValue( context.Instance );
+            }
+        }
+
+        public override object ConvertTo( System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType )
+        {
+            HoArchive.RGBA8888 p = ( HoArchive.RGBA8888 ) value;
+            return p.r +"; "+ p.g+"; " + p.b + "; " + p.a;
+        }
+    }
+
+    public class Point3Converter: System.ComponentModel.ExpandableObjectConverter
+    {
+        public override bool CanConvertFrom( System.ComponentModel.ITypeDescriptorContext context, Type sourceType )
+        {
+            return sourceType == typeof( string );
+        }
+
+        public override object ConvertFrom( System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value )
+        {
+            try
+            {
+                string[] tokens = (( string ) value).Split( "; ");
+                return new HoArchive.float3( float.Parse( tokens[0], System.Globalization.NumberStyles.AllowDecimalPoint), float.Parse( tokens[1], System.Globalization.NumberStyles.AllowDecimalPoint), float.Parse( tokens[2], System.Globalization.NumberStyles.AllowDecimalPoint) );
+            }
+            catch
+            {
+                return context.PropertyDescriptor.GetValue( context.Instance );
+            }
+        }
+
+        public override object ConvertTo( System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType )
+        {
+            HoArchive.float3 p = ( HoArchive.float3 ) value;
+            return p.x +"; "+ p.y+"; " + p.z;
+        }
+    }
+
 }

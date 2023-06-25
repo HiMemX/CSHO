@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System;
+using System.IO;
+using System.Linq;
 
 namespace HoArchive{
     public class Table : ParcelBase{ // Table is a type of Parcel (SECT, P, PD, PTEX, PFST). It will have the same methodes as normal parcels to allow for a complex tree (It also saves me some code).
@@ -16,7 +18,7 @@ namespace HoArchive{
             StringTable = new StringTable(DomainString);
         }
 
-        public Table(BinaryReaderEndian file, uint sectorSize, string target){
+        public Table(BinaryReaderEndian file, uint sectorSize, string target, string platform){
             long baseposition = file.BaseStream.Position;
 
             // Table Header
@@ -59,7 +61,7 @@ namespace HoArchive{
                 file.BaseStream.Position = TableEntries[i].startSector * sectorSize;
                 switch (TableEntries[i].sectionType){
                     case "SECT":
-                        Parcels.Add(new Table(file, sectorSize, target));
+                        Parcels.Add(new Table(file, sectorSize, target, platform));
                         break;
                     
                     case "PD  ":
@@ -67,7 +69,7 @@ namespace HoArchive{
                         break;
 
                     default:
-                        Parcels.Add(new Parcel(file, (ParcelSliceMeta)MetaTableEntries[i][0], target));
+                        Parcels.Add(new Parcel(file, (ParcelSliceMeta)MetaTableEntries[i][0], target, platform));
                         break;
                 }
             }
@@ -217,6 +219,127 @@ namespace HoArchive{
             for (int i=0; i<TableHeader.entryCount; i++){
                 file.PadTo(TableEntries[i].startSector*sectorSize, 0x33);
                 Parcels[i].Save(file, sectorSize, MetaTableEntries[i]);
+            }
+        }
+
+        public void SaveLSET(StreamWriter file, string indent, string tag, List<NameTableEntry> nameTableEntries, TableEntry entry=null){
+            string args = "tableFlags=" + TableHeader.tableFlags;
+            if(entry != null){args += ", " + entry.getArgs();}
+            file.WriteLine(indent + tag + "(" + args + "){");
+            StringTable.SaveLSET(file, indent + "   ");
+            file.WriteLine();
+            
+
+            for (int i=0; i<TableHeader.entryCount; i++){
+                if(Parcels[i] is ParcelDebug){continue;}
+                Parcels[i].SaveLSET(file, indent + "   ", TableEntries[i].sectionType, nameTableEntries, entry: TableEntries[i]);
+                file.WriteLine();
+            }
+
+            file.WriteLine(indent + "}");
+        }
+
+        public Table(List<string> lines, string tableTypeTag, string game, string platform, string assetpath, uint tableFlags=0){
+            TableHeader = new TableHeader(tableTypeTag, tableFlags);
+
+            List<string> stringTableLines = new List<string>();
+            bool gotStringTable = false;
+            string DomainString = "";
+            foreach(string line in lines){
+                if(gotStringTable){
+                    if(line == "}"){break;}
+                    stringTableLines.Add(line);
+                    continue;
+                }
+                if(line.Length < 12){continue;}
+                if(line.Substring(0, 12) != "StringTable("){continue;}
+                gotStringTable = true;
+                DomainString = (line.Substring(12, line.Length-14).Replace(" ", "").Split("=")[1].Replace("'","").Replace("\"",""));
+            }
+            StringTable = new StringTable(DomainString);
+            stringTableLines.Remove("\n");
+            StringTable.StringTableEntries = stringTableLines;
+
+            string tag;
+            int lineindex = 0;
+            List<string> linebuffer = new List<string>();
+            List<string> argbuffer;
+            
+            uint newtableFlags = 0;
+            LanguageID packLangID = LanguageID.Neutral;
+            enParcelType parcelType = enParcelType.PARCEL_TYPE_EXCLUSIVE;
+            uint fromNameHash = 0;
+            uint attributeFlags = 0;
+            uint externName = 0xFFFFFFFF;
+            ParcelDebug exclusive = null;
+            ParcelDebug shared = null;
+            ParcelDebug fromDomain = null;
+            ParcelDebug currDebugParcel = null;
+
+            foreach(string line in lines){ // Parcel Fetching
+                lineindex ++;
+                if(linebuffer.Count > 0){
+                    linebuffer.RemoveAt(0);
+                    continue;
+                }
+                if(line.Length < 4){
+                    continue;
+                }
+                tag = line.Split("(")[0].Replace(" ", "");
+                if(tag != "SECT" && tag != "P" && tag != "PTEX" && tag != "PFST"){continue;}
+
+                linebuffer = StringTools.ReadUntilCloseBracket(lines.ToArray()[(lineindex)..^0].ToList());
+                argbuffer = StringTools.GetArgs(line);
+                
+                //lineindex += linebuffer.Count;
+
+                //Console.WriteLine(tag);
+                //Console.WriteLine(lines.ToArray()[(lineindex)..^0].ToList()[0]);
+                //Console.WriteLine(String.Join(", ", argbuffer));
+
+                if(StringTools.GetArg(argbuffer, "tableFlags") != null){newtableFlags = uint.Parse(StringTools.GetArg(argbuffer, "tableFlags"));}
+                if(StringTools.GetArg(argbuffer, "packLangID") != null){packLangID = (LanguageID)Enum.Parse(typeof(LanguageID), StringTools.GetArg(argbuffer, "packLangID"));}
+                if(StringTools.GetArg(argbuffer, "parcelType") != null){parcelType = (enParcelType)Enum.Parse(typeof(enParcelType), StringTools.GetArg(argbuffer, "parcelType"));}
+                if(StringTools.GetArg(argbuffer, "fromNameHash") != null){fromNameHash = uint.Parse(StringTools.GetArg(argbuffer, "fromNameHash"));}
+                if(StringTools.GetArg(argbuffer, "attributeFlags") != null){attributeFlags = uint.Parse(StringTools.GetArg(argbuffer, "attributeFlags"));}
+                if(StringTools.GetArg(argbuffer, "externName") != null){externName = uint.Parse(StringTools.GetArg(argbuffer, "externName"));}
+                
+                if(parcelType == enParcelType.PARCEL_TYPE_EXCLUSIVE && exclusive == null){
+                    TableEntries.Add(new HoArchive.TableEntry("PD  ", packLangID, parcelType, fromNameHash_in: fromNameHash, attributeFlags_in: attributeFlags, externName_in: externName));
+                    MetaTableEntries.Add(new List<SliceMeta>(){new ParcelDebugSliceMeta()});
+                    Parcels.Add(new HoArchive.ParcelDebug());
+                    exclusive = (ParcelDebug)Parcels.Last();
+
+                }
+                if(parcelType == enParcelType.PARCEL_TYPE_SHARED && shared == null){
+                    TableEntries.Add(new HoArchive.TableEntry("PD  ", packLangID, parcelType, fromNameHash_in: fromNameHash, attributeFlags_in: attributeFlags, externName_in: externName));
+                    MetaTableEntries.Add(new List<SliceMeta>(){new ParcelDebugSliceMeta()});
+                    Parcels.Add(new HoArchive.ParcelDebug());
+                    shared = (ParcelDebug)Parcels.Last();
+                }
+                if(parcelType == enParcelType.PARCEL_TYPE_FROMDOMAIN && fromDomain == null){
+                    TableEntries.Add(new HoArchive.TableEntry("PD  ", packLangID, parcelType, fromNameHash_in: fromNameHash, attributeFlags_in: attributeFlags, externName_in: externName));
+                    MetaTableEntries.Add(new List<SliceMeta>(){new ParcelDebugSliceMeta()});
+                    Parcels.Add(new HoArchive.ParcelDebug());
+                    fromDomain = (ParcelDebug)Parcels.Last();
+                }
+
+                if(parcelType == enParcelType.PARCEL_TYPE_EXCLUSIVE){currDebugParcel = exclusive;}
+                if(parcelType == enParcelType.PARCEL_TYPE_SHARED){currDebugParcel = shared;}
+                if(parcelType == enParcelType.PARCEL_TYPE_FROMDOMAIN){currDebugParcel = fromDomain;}
+
+                TableEntries.Add(new TableEntry(tag.PadRight(4, ' '), packLangID, parcelType, fromNameHash_in: fromNameHash, attributeFlags_in: attributeFlags, externName_in: externName));
+                
+                if(tag == "SECT"){
+                    MetaTableEntries.Add(new List<SliceMeta>());
+                    Parcels.Add(new Table(linebuffer, tag, game, platform, assetpath, newtableFlags));
+                }
+                else{
+                    MetaTableEntries.Add(new List<SliceMeta>(){new ParcelSliceMeta(game=="WALE" && platform=="WII")});
+                    Parcels.Add(new Parcel(linebuffer, currDebugParcel, game, platform, assetpath));
+                }
+                
+
             }
         }
     }

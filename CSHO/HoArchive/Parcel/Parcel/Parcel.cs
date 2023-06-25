@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace HoArchive{
     public class Parcel : ParcelBase{
@@ -8,7 +10,7 @@ namespace HoArchive{
 
         public Parcel(){}
 
-        public Parcel(BinaryReaderEndian file, ParcelSliceMeta SliceMeta, string target){
+        public Parcel(BinaryReaderEndian file, ParcelSliceMeta SliceMeta, string target, string platform){
             uint baseposition = (uint)file.BaseStream.Position;
             uint DataPtr;
             uint MetaPtr;
@@ -17,7 +19,7 @@ namespace HoArchive{
                 MetaPtr = SliceMeta.EntriesParcelTOC[i].sliceStart  + baseposition;
 
                 file.BaseStream.Position = MetaPtr;
-                ParcelTOCs.Add(new ParcelTOC(file, DataPtr, target));
+                ParcelTOCs.Add(new ParcelTOC(file, DataPtr, target, platform));
 
 
 
@@ -95,6 +97,35 @@ namespace HoArchive{
                 ParcelTOCs[slice].SaveMeta(file);
             }
             file.BaseStream.Position = endposition;
+        }
+
+        public void SaveLSET(StreamWriter file, string indent, string tag, List<NameTableEntry> nameTableEntries, TableEntry entry = null){
+            file.WriteLine(indent + tag + "(" + entry.getArgs() + "){");
+
+            foreach(ParcelTOC toc in ParcelTOCs){
+                toc.SaveLSET(file, indent + "   ", nameTableEntries);
+            }
+
+            file.WriteLine(indent + "}");
+        }
+
+        public Parcel(List<string> lines, ParcelDebug debugParcel, string game, string platform, string assetpath){
+            int lineindex = 0;
+            string tag;
+            List<string> linebuffer;
+            foreach(string line in lines){
+                lineindex ++;
+                if(line.Length < 4){
+                    continue;
+                }
+                
+                tag = line.Substring(0, 4);
+                if(tag != "TOC{"){continue;}
+
+                linebuffer = StringTools.ReadUntilCloseBracket(lines.ToArray()[(lineindex)..^0].ToList());
+
+                ParcelTOCs.Add(new ParcelTOC(linebuffer, debugParcel, game, platform, assetpath));
+            }
         }
     }
 }

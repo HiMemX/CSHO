@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.IO;
 
 namespace HoArchive{
     public class TableHeader{ // Update gets handeled by Table.cs
@@ -49,6 +50,15 @@ namespace HoArchive{
             file.WriteE(firstMetaRec);
             file.WriteE(metaDataSize);
             file.WriteE(reserved);
+        }
+
+        public void SaveLSET(StreamWriter file, string indent){
+            file.WriteLine(indent + "TableHeader{");
+
+            file.WriteLine(indent + "   tableTypeTag: " + tableTypeTag);
+            file.WriteLine(indent + "   tableFlags:   " + tableFlags.ToString());
+
+            file.WriteLine(indent + "}");
         }
     }
 }

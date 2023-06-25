@@ -44,5 +44,9 @@ namespace HoArchive{
             file.WriteString(name + "\0");
             file.PadAlign(0x40, 0x33);
         }
+
+        public string Serialize(){
+            return uidAsset + ", " + typeID + ", " + name;
+        }
     }
 }

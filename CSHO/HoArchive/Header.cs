@@ -1,6 +1,9 @@
 using System;
 using System.Globalization;
 using System.ComponentModel;
+using System.IO;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace HoArchive{
     public class Header{
@@ -137,6 +140,62 @@ namespace HoArchive{
 
             file.WriteE(libVersion);
             file.WriteE(pad02);
+        }
+
+        public void SaveLSET(StreamWriter file, string indent){
+            file.WriteLine(indent + "Header{");
+            file.WriteLine(indent + "   magic     =" + cMagic);            
+            file.WriteLine(indent + "   sectorSize=" + sectorSize.ToString());
+            file.WriteLine();
+            file.WriteLine(indent + "   platform  =" + platform);
+            file.WriteLine(indent + "   user      =" + user);
+            file.WriteLine(indent + "   target    =" + target);
+            file.WriteLine(indent + "   creator   =" + creator);
+            file.WriteLine(indent + "   comment   =" + comment);
+            file.WriteLine(indent + "   hash      =" + hash);
+            file.WriteLine(indent + "}");
+        }
+
+        public Header(List<string> args){
+            cMagic = "HEL→";
+            verPackFile = 1;
+            verWMlSchema = 0;
+            geBuildNum = 1;
+            timeValue = 0;
+            timeString = "";
+            sectorSize = 0x800;
+            startSector = 1;
+            tableSize = 0;
+            pad01 = 0;
+            platform = "WII";
+            user = "csho_autobuild";
+            target = "SB09";
+            creator = "";
+            comment = "";
+            hash = "7989bbee658a35f8701478eb9f0909d3";
+            libVersion = 1;
+            pad02 = 0;
+
+            List<string> elements;
+            string field;
+            string value;
+            foreach(string arg in args){
+                if(arg.Split("=").Length == 0){continue;}
+                elements = arg.Split("=").ToList();
+                field = elements[0];
+                elements.RemoveAt(0);
+                value = String.Join("=", elements);
+                
+                if(field == "magic"){cMagic = value;}
+                if(field == "sectorSize"){sectorSize = uint.Parse(value);}
+                
+                if(field == "platform"){platform = value;}
+                if(field == "user"){user = value;}
+                if(field == "target"){target = value;}
+                if(field == "creator"){creator = value;}
+                if(field == "comment"){comment = value;}
+                if(field == "hash"){hash = value;}
+            }
         }
     }
 }
