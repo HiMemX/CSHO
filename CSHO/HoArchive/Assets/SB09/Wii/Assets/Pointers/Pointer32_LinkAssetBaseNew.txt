@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+
+namespace SB09WiiAsset{
+    public class Pointer32_LinkAssetsBaseNew : Pointer32{
+        public List<LinkAssetBaseNew> events {get; set;}
+
+        public Pointer32_LinkAssetsBaseNew(HoArchive.MemoryStreamEndian file, uint count) : base(file){
+            events = new List<LinkAssetBaseNew>();
+            file.Jump(_p);
+            for(int i=0; i<count; i++){
+                events.Add(new LinkAssetBaseNew(file));
+            }
+
+            file.Return();
+        }
+
+        public void Update(HoArchive.TOCEntry entry){
+        }
+
+        public new void Save(HoArchive.MemoryStreamEndian file){
+            base.Save(file);
+            
+        }
+    }
+}

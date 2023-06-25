@@ -1,0 +1,21 @@
+namespace SB09WiiAsset{
+    public class Pointer32_p : Pointer32{
+
+        public Pointer32 p {get; set;}
+
+        public Pointer32_p(HoArchive.MemoryStreamEndian file) : base(file){
+            file.Jump(_p);
+            p = new Pointer32(file);
+            file.Return();
+        }
+
+        public new void Update(){
+            
+        }
+
+        public new void Save(HoArchive.MemoryStreamEndian file){
+            base.Save(file);
+            p.SavePointer(file);
+        }
+    }
+}
