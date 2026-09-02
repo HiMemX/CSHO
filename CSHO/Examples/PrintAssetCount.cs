@@ -15,14 +15,14 @@ public static class PrintAssetCount
         ///  Print out number of assets in file
         /// </summary>
         
-        Handler handler = new Handler(); // Initialize Handler.
-        handler.Open(path); // Open .ho archive.
+        Handler handler = new Handler(); // Initialize Handler
+        handler.Open(path); // Open .ho archive
 
-        List<TOCEntry> assets = handler.GetAssets();
+        List<TOCEntry> assets = handler.GetAssets(); // Get all assets
         int count = assets.Count;
 
         Console.WriteLine($"Total asset count: {count}");
 
-        handler.Close();
+        handler.Close(); // Close archive
     }
 }
