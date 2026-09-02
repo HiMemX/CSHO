@@ -1,0 +1,5 @@
+C:\Users\felix\Desktop\Projekte\Plankton 3D Update\CSHO\CSHO\obj\Release\net6.0\CSHO.csproj.AssemblyReference.cache
+C:\Users\felix\Desktop\Projekte\Plankton 3D Update\CSHO\CSHO\obj\Release\net6.0\CSHO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\felix\Desktop\Projekte\Plankton 3D Update\CSHO\CSHO\obj\Release\net6.0\CSHO.AssemblyInfoInputs.cache
+C:\Users\felix\Desktop\Projekte\Plankton 3D Update\CSHO\CSHO\obj\Release\net6.0\CSHO.AssemblyInfo.cs
+C:\Users\felix\Desktop\Projekte\Plankton 3D Update\CSHO\CSHO\obj\Release\net6.0\CSHO.csproj.CoreCompileInputs.cache

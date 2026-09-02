@@ -1,0 +1,5 @@
+*.rar
+*.dll
+.vscode/
+.vs/
+.git/

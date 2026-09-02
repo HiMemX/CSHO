@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "fLv9i1oQOAU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\felix\\Desktop\\Random Stuff\\USB Backup\\CSHO\\CSHO\\CSHO.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\felix\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.12\\microsoft.netcore.platforms.2.1.12.nupkg.sha512",
+    "C:\\Users\\felix\\.nuget\\packages\\microsoft.win32.systemevents\\4.5.0\\microsoft.win32.systemevents.4.5.0.nupkg.sha512",
+    "C:\\Users\\felix\\.nuget\\packages\\system.drawing.common\\4.5.2\\system.drawing.common.4.5.2.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1904",
+      "level": "Warning",
+      "message": "Package 'System.Drawing.Common' 4.5.2 has a known critical severity vulnerability, https://github.com/advisories/GHSA-rxg9-xrhp-64gj",
+      "projectPath": "C:\\Users\\felix\\Desktop\\Random Stuff\\USB Backup\\CSHO\\CSHO\\CSHO.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\felix\\Desktop\\Random Stuff\\USB Backup\\CSHO\\CSHO\\CSHO.csproj",
+      "libraryId": "System.Drawing.Common",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
+}

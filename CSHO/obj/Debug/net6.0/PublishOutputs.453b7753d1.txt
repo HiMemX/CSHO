@@ -1,0 +1,10 @@
+C:\Users\felix\Desktop\Projekte\Plankton 3D Update\CSHO\CSHO\bin\Debug\net6.0\publish\CSHO.exe
+C:\Users\felix\Desktop\Projekte\Plankton 3D Update\CSHO\CSHO\bin\Debug\net6.0\publish\CSHO.dll
+C:\Users\felix\Desktop\Projekte\Plankton 3D Update\CSHO\CSHO\bin\Debug\net6.0\publish\CSHO.deps.json
+C:\Users\felix\Desktop\Projekte\Plankton 3D Update\CSHO\CSHO\bin\Debug\net6.0\publish\CSHO.runtimeconfig.json
+C:\Users\felix\Desktop\Projekte\Plankton 3D Update\CSHO\CSHO\bin\Debug\net6.0\publish\CSHO.pdb
+C:\Users\felix\Desktop\Projekte\Plankton 3D Update\CSHO\CSHO\bin\Debug\net6.0\publish\Microsoft.Win32.SystemEvents.dll
+C:\Users\felix\Desktop\Projekte\Plankton 3D Update\CSHO\CSHO\bin\Debug\net6.0\publish\System.Drawing.Common.dll
+C:\Users\felix\Desktop\Projekte\Plankton 3D Update\CSHO\CSHO\bin\Debug\net6.0\publish\runtimes\win\lib\netcoreapp2.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\felix\Desktop\Projekte\Plankton 3D Update\CSHO\CSHO\bin\Debug\net6.0\publish\runtimes\unix\lib\netcoreapp2.0\System.Drawing.Common.dll
+C:\Users\felix\Desktop\Projekte\Plankton 3D Update\CSHO\CSHO\bin\Debug\net6.0\publish\runtimes\win\lib\netcoreapp2.0\System.Drawing.Common.dll

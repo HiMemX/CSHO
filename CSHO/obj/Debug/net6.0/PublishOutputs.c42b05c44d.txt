@@ -1,0 +1,10 @@
+I:\CSHO\csho\bin\Debug\net6.0\publish\CSHO.exe
+I:\CSHO\csho\bin\Debug\net6.0\publish\CSHO.dll
+I:\CSHO\csho\bin\Debug\net6.0\publish\CSHO.deps.json
+I:\CSHO\csho\bin\Debug\net6.0\publish\CSHO.runtimeconfig.json
+I:\CSHO\csho\bin\Debug\net6.0\publish\CSHO.pdb
+I:\CSHO\csho\bin\Debug\net6.0\publish\Microsoft.Win32.SystemEvents.dll
+I:\CSHO\csho\bin\Debug\net6.0\publish\System.Drawing.Common.dll
+I:\CSHO\csho\bin\Debug\net6.0\publish\runtimes\win\lib\netcoreapp2.0\Microsoft.Win32.SystemEvents.dll
+I:\CSHO\csho\bin\Debug\net6.0\publish\runtimes\unix\lib\netcoreapp2.0\System.Drawing.Common.dll
+I:\CSHO\csho\bin\Debug\net6.0\publish\runtimes\win\lib\netcoreapp2.0\System.Drawing.Common.dll

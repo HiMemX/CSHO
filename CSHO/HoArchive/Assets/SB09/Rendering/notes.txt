@@ -1,0 +1,6 @@
+The files in this folder serve as basis for assets involved in the rendering process.
+By generalizing the basis like this, we can assure that future game additions won't result in awful case differentiation.
+
+There are a lot of features that don't matter for rendering and are specific for the Plankton Visual Editor.
+
+[21.3.2026] These base classes have been moved away from and are not supposed to be used anymore.
