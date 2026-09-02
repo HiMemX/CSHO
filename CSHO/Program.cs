@@ -56,21 +56,7 @@ namespace CSHO
     {
         static void Main(string[] args)
         {
-            string basepath = @"C:\Users\felix\Desktop\Random Stuff\Roms\Wii\ToS - Exctracted\DATA\files\SB09\Levels";
-            
-            Handler handler = new();
-            handler.Open(basepath + @"\SHUB.ho");
-
-            List<TOCEntry> assets = handler.GetAssets();
-            foreach(TOCEntry asset in assets)
-            {
-                foreach(ModelInstanceAsset ent in TargetFetcher.GetTargetInstances(asset.entity, typeof(ModelInstanceAsset)))
-                {
-                    ent.lightKitID = 0;
-                }
-            }
-
-            handler.Save();
+            Example.PrintAssetCount.Run(@"d:\Extracted roms\ToS WII\DATAmod\files\SB09\Levels\SHUB.ho");
 
             /*string basepath = @"C:\Users\felix\Desktop\Random Stuff\Roms\Wii\ToS - Exctracted\DATA\files\SB09\Levels";
             List<string> paths = new() {"SHUB.ho", "SL01.ho", "SL02.ho", "SL04.ho", "SL05.ho", "SL06.ho", "SL07.ho", "SL08.ho"};

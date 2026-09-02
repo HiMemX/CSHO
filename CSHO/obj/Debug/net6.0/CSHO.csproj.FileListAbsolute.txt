@@ -184,3 +184,25 @@ C:\Users\felix\Desktop\Random Stuff\USB Backup\CSHO\csho\obj\Debug\net6.0\refint
 C:\Users\felix\Desktop\Random Stuff\USB Backup\CSHO\csho\obj\Debug\net6.0\CSHO.pdb
 C:\Users\felix\Desktop\Random Stuff\USB Backup\CSHO\csho\obj\Debug\net6.0\CSHO.genruntimeconfig.cache
 C:\Users\felix\Desktop\Random Stuff\USB Backup\CSHO\csho\obj\Debug\net6.0\ref\CSHO.dll
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\bin\Debug\net6.0\CSHO.exe
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\bin\Debug\net6.0\CSHO.deps.json
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\bin\Debug\net6.0\CSHO.runtimeconfig.json
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\bin\Debug\net6.0\CSHO.dll
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\bin\Debug\net6.0\CSHO.pdb
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.0\System.Drawing.Common.dll
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.0\System.Drawing.Common.dll
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\obj\Debug\net6.0\CSHO.csproj.AssemblyReference.cache
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\obj\Debug\net6.0\CSHO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\obj\Debug\net6.0\CSHO.AssemblyInfoInputs.cache
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\obj\Debug\net6.0\CSHO.AssemblyInfo.cs
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\obj\Debug\net6.0\CSHO.csproj.CoreCompileInputs.cache
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\obj\Debug\net6.0\CSHO.sourcelink.json
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\obj\Debug\net6.0\CSHO.csproj.Up2Date
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\obj\Debug\net6.0\CSHO.dll
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\obj\Debug\net6.0\refint\CSHO.dll
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\obj\Debug\net6.0\CSHO.pdb
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\obj\Debug\net6.0\CSHO.genruntimeconfig.cache
+C:\Users\felix\Desktop\Projects\CSHO\CSHO\CSHO\obj\Debug\net6.0\ref\CSHO.dll

@@ -1,5 +1,5 @@
 import os
-rootdir = r"E:\CSHO"
+rootdir = r"C:\Users\felix\Desktop\Projects\CSHO"
 
 count = 0
 for subdir, dirs, files in os.walk(rootdir):
