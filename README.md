@@ -1,2 +1,5 @@
 # CSHO
-Library to read in .ho archives (C# version)
+Library to manage .ho archives from GoodEngine era Heavy Iron Studios Games
+
+Written in C#
+
