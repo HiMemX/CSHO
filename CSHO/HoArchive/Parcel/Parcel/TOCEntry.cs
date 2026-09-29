@@ -27,7 +27,8 @@ namespace HoArchive{
 
         public bool delete = false;
 
-        public List<Action<TOCEntry>> OnUpdate = new(); // Event like, get called when update is performed.
+        // We're gonna remove this now
+        //public List<Action<TOCEntry>> OnUpdate = new(); // Event like, get called when update is performed.
 
         public TOCEntry(ulong uidSelf_in, wmlTypeID wmlTypeID_in, uint blobAlign_in = 0x04, ushort subType_in = 0, ushort blobFlags_in = 1, List<byte> data_in = null, Asset.AssetEntity entity_in = null){
             if(data_in == null && entity == null){throw new Exception();}
@@ -88,14 +89,8 @@ namespace HoArchive{
             elementSize   = MathTools.RoundUpTo((uint)data.Count, Align);
             blobSize      = (uint)data.Count;
 
-            if(performevents) PerformOnUpdate();
         }
 
-        public void PerformOnUpdate(){
-            foreach(Action<TOCEntry> act in OnUpdate){
-                act(this);
-            }
-        }
 
         public void SaveData(BinaryWriterEndian file){
             file.Write(data.ToArray());
