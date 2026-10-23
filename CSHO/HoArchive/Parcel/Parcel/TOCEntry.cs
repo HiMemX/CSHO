@@ -27,6 +27,10 @@ namespace HoArchive{
 
         public bool delete = false;
 
+        public string platform;
+        public string target;
+        public bool endianness;
+
         // We're gonna remove this now
         //public List<Action<TOCEntry>> OnUpdate = new(); // Event like, get called when update is performed.
 
@@ -38,6 +42,9 @@ namespace HoArchive{
             blobAlign = blobAlign_in;
             subType = subType_in;
             blobFlags = blobFlags_in;
+
+            //this.platform = platform;
+            //this.target = target;
 
             if (data_in != null)
             {
@@ -62,16 +69,36 @@ namespace HoArchive{
             file.BaseStream.Position = DataPtr;
             data = new List<byte>(file.ReadBytes((int)blobSize));
             file.BaseStream.Position = DataPtr;
-            MemoryStreamEndian stream = new MemoryStreamEndian(data.ToArray(), file.endianness);
             
-            CreateEntity(stream, target, platform);
+            this.target = target;
+            this.endianness = file.endianness;
+            this.platform = platform;
 
-            stream.Dispose();
+            CreateEntity();
 
             file.BaseStream.Position = returnaddr;
         }
 
-        public void CreateEntity(MemoryStreamEndian stream, string target, string platform){
+        public void CreateEntity()
+        {
+            MemoryStreamEndian stream = CreateStream();
+
+            CreateEntity(stream);
+
+            stream.Dispose();
+        }
+
+        public void CreateEntity(MemoryStreamEndian stream, string target, string platform)
+        {
+            CreateEntity(stream);
+        }
+
+        public MemoryStreamEndian CreateStream()
+        {
+            return new MemoryStreamEndian(data.ToArray(), endianness);
+        }
+
+        public void CreateEntity(MemoryStreamEndian stream){
             if(Asset.AvailableAssetsTEMP.available.Contains(wmlTypeID)){entity = Asset.AssetCaster.ReadAsset(stream, wmlTypeID, target, platform);}
         }
 

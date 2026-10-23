@@ -10,24 +10,25 @@ namespace HoArchive{
 
         public bool delete = false;
 
-        public List<Action<TOCEntry>> OnAddTOCEntry = new();
+        // Not doing this anymore
+        //public List<Action<TOCEntry>> OnAddTOCEntry = new();
 
         public void AddTOCEntry(TOCEntry entry){
             Entries.Add(entry);
-
+            /*
             foreach(Action<TOCEntry> action in OnAddTOCEntry){
                 action(entry);
-            }
+            }*/
         }
 
         public void AddTOCEntries(List<TOCEntry> entries)
         {
             Entries.AddRange(entries);
-
+            /*
             foreach (TOCEntry entry in entries)
             {
                 foreach (Action<TOCEntry> action in OnAddTOCEntry) action(entry);
-            }
+            }*/
         }
 
         public ParcelTOC()
