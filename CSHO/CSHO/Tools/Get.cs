@@ -113,6 +113,7 @@ namespace CSHO{
 
         public List<HoArchive.ParcelBase> GetParcels(enParcelType? targetType = null)
         {
+            if(Archive == null) return new();
             return GetParcels(Archive.MasterTable, targetType);
         }
 
@@ -135,6 +136,7 @@ namespace CSHO{
 
         public List<HoArchive.ParcelBase> GetTables()
         {
+            if(Archive == null) return new();
             return GetTables(Archive.MasterTable);
         }
 
