@@ -8,6 +8,11 @@ namespace SB09WiiAsset{
         [TypeConverter(typeof(Point3Converter))]
         public HoArchive.float3 orientation {get; set;}
 
+        public DirLight(){
+            color = new();
+            orientation = new();
+        }
+
         public DirLight(MemoryStreamEndian file){
             color = new FloatColorRGB(file);
             orientation = new float3(file);

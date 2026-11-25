@@ -5,6 +5,10 @@ namespace SB09WiiAsset{
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public __EventLinksArray__ EventLinksArray {get; set;}
 
+        public LinkAsset(){
+            EventLinksArray = new();
+        }
+
         public LinkAsset(HoArchive.MemoryStreamEndian file){
             EventLinksArray = new __EventLinksArray__(file);
         }

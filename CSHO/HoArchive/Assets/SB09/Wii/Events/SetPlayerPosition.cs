@@ -5,11 +5,11 @@ using Asset;
 using HoArchive;
 
 public class SetPlayerPosition : EventEntity{
-    public uint unknown0 { get; set; }
-    public uint unknown1 { get; set; }
+    public uint unknown0 { get; set; } = 0;
+    public uint unknown1 { get; set; } = 0;
 
     [TypeConverter(typeof(AssetIDConverter))]
-    public ulong directionID { get; set; }
+    public ulong directionID { get; set; } = 0;
 
     public SetPlayerPosition(){}
 

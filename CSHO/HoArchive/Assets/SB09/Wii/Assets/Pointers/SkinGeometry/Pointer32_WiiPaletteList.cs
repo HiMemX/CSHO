@@ -13,23 +13,14 @@ namespace SB09WiiAsset{
         }
 
         public Pointer32_WiiPaletteList(HoArchive.MemoryStreamEndian file, ushort count) : base(file){
-            file.Jump(_p);
-            wiiSkinPaletteList = new List<WiiSkinPalette>();
-            for(int x=0; x<count; x++){
-                wiiSkinPaletteList.Add(new WiiSkinPalette(file));
-            }
-
-            file.Return();
+            wiiSkinPaletteList = ReadItems<WiiSkinPalette>(file, count, stream => new WiiSkinPalette(stream));
         }
 
         public new void Update(){
         }
 
         public new void Save(HoArchive.MemoryStreamEndian file){
-            base.Save(file);
-            foreach(WiiSkinPalette section in wiiSkinPaletteList){
-                section.Save(file);
-            }
+            SaveItems(file, wiiSkinPaletteList, (stream, item) => item.Save(stream));
 
             foreach(WiiSkinPalette section in wiiSkinPaletteList){
                 section.SaveHeap(file);

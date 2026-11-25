@@ -1,12 +1,14 @@
 namespace SB09WiiAsset{
     public class instanceParam{
         public instanceParamHandle handle {get; set;}
-        public float unknown2 {get; set;}
-        public float unknown3 {get; set;}
-        public float unknown4 {get; set;}
-        public float unknown5 {get; set;}
+        public float unknown2 {get; set;} = new();
+        public float unknown3 {get; set;} = new();
+        public float unknown4 {get; set;} = new();
+        public float unknown5 {get; set;} = new();
 
-        public instanceParam(){}
+        public instanceParam(){
+            handle = new();
+        }
 
         public instanceParam(HoArchive.MemoryStreamEndian file){
             handle = new instanceParamHandle(file);

@@ -1,7 +1,9 @@
 namespace SB09WiiAsset{
     public class UVSet{
-        public float U {get; set;}
-        public float V {get; set;}
+        public float U {get; set;} = new();
+        public float V {get; set;} = new();
+
+        public UVSet(){}
 
         public UVSet(HoArchive.MemoryStreamEndian file){
             U = file.ReadFloat32E();

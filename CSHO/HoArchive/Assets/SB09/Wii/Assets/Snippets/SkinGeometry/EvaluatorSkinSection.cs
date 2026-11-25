@@ -2,9 +2,9 @@ using HoArchive;
 
 namespace SB09WiiAsset{
     public class EvaluatorSkinSection{
-        public ushort start {get;set;}
-        public byte size {get;set;}
-        public byte pad {get;set;}
+        public ushort start {get;set;} = new();
+        public byte size {get;set;} = new();
+        public byte pad {get;set;} = new();
 
         public EvaluatorSkinSection(){}
 

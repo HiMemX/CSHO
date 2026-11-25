@@ -6,10 +6,12 @@ namespace SB09WiiAsset;
 public class ConditionDef
 {
     [TypeConverter(typeof(AssetIDConverter))]
-    public ulong value_asset { get; set; }
-    public uint constNum { get; set; }
-    public uint expr1 { get; set; }
-    public uint op { get; set; }
+    public ulong value_asset { get; set; } = new();
+    public uint constNum { get; set; } = new();
+    public uint expr1 { get; set; } = new();
+    public uint op { get; set; } = new();
+
+    public ConditionDef(){}
 
     public ConditionDef(MemoryStreamEndian file)
     {

@@ -8,9 +8,9 @@ namespace SB09WiiAsset{
         public Pointer32_string name {get; set;}
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public RenderStageEntries stages {get; set;} // always 4 entries
-        public byte lodMax {get; set;}
-        public byte renderStateFlags {get; set;}
-        public ushort pad {get; set;} // In dwarf this is an array of 2 bytes, cbf doing that though
+        public byte lodMax {get; set;} = new();
+        public byte renderStateFlags {get; set;} = new();
+        public ushort pad {get; set;} = new(); // In dwarf this is an array of 2 bytes, cbf doing that though
 
         public Technique(){
             name = new Pointer32_string("");

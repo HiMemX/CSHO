@@ -7,6 +7,11 @@ namespace SB09WiiAsset{
 
         public List<ScriptEntry> scriptEntries { get; set; }
 
+        public Pointer32_ScriptList() : base()
+        {
+            scriptEntries = new();
+        }
+
         public Pointer32_ScriptList(List<ScriptEntry> scriptEntries)
         {
             this.scriptEntries = scriptEntries;

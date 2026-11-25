@@ -4,9 +4,9 @@ using System.ComponentModel;
 
 namespace SB09WiiAsset{
     public class MaterialParam{
-        public byte type {get; set;}
-        public byte debugIndex {get; set;}
-        public ushort elementCount {get; set;}
+        public byte type {get; set;} = new();
+        public byte debugIndex {get; set;} = new();
+        public ushort elementCount {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public Pointer32 __anon {get; set;}
         

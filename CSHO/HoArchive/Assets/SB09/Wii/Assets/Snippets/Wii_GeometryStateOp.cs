@@ -12,10 +12,19 @@ namespace SB09WiiAsset{
         public ChannelInfo color {get; set;}
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public ChannelInfo[] uv {get; set;}
-        public byte posMtx {get; set;}
-        public byte texMtxCount {get; set;}
-        public byte pad1 {get; set;}
+        public byte posMtx {get; set;} = new();
+        public byte texMtxCount {get; set;} = new();
+        public byte pad1 {get; set;} = new();
 
+
+        public Wii_GeometryStateOp() : base(){
+            mat = new();
+            pos = new();
+            norm = new();
+            color = new();
+            uv = new ChannelInfo[] { new(), new(), new() };
+            size = 0x48;
+        }
 
         public Wii_GeometryStateOp(HoArchive.MemoryStreamEndian file) : base(file){
             mat = new Wii_MaterialSettings(file);

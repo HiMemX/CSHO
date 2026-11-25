@@ -6,13 +6,13 @@ using System.Collections.Generic;
 namespace SB09WiiAsset{
     public class Shader{
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong shaderID {get; set;}
+        public ulong shaderID {get; set;} = new();
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong renderModeID {get; set;}
+        public ulong renderModeID {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public Pointer32_b_Array3 paramIndices {get;set;}
         public byte[] paramCount;
-        public byte pad {get; set;}
+        public byte pad {get; set;} = new();
 
         public Shader(){
             paramIndices = new Pointer32_b_Array3(new List<Pointer32_b>{new Pointer32_b(), new Pointer32_b(), new Pointer32_b()});

@@ -2,10 +2,10 @@
 
 namespace SB09WiiAsset{
     public class SkinCount_Array4{
-        public byte element0;
-        public byte element1;
-        public byte element2;
-        public byte element3;
+        public byte element0 = new();
+        public byte element1 = new();
+        public byte element2 = new();
+        public byte element3 = new();
 
         public SkinCount_Array4(){}
 

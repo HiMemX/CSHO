@@ -5,15 +5,15 @@ using HoArchive;
 namespace SB09WiiAsset{
     public class IndexLOD{
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong indexBufferID {get;set;}
-        public ushort indexCount {get;set;}
-        public ushort primCount {get;set;}
-        public ushort triCount {get;set;}
-        public ushort vertCount {get;set;}
-        public float lodDist {get;set;}
-        public byte skinSectStart {get;set;}
-        public byte skinSectCount {get;set;}
-        public ushort pad {get;set;}
+        public ulong indexBufferID {get;set;} = new();
+        public ushort indexCount {get;set;} = new();
+        public ushort primCount {get;set;} = new();
+        public ushort triCount {get;set;} = new();
+        public ushort vertCount {get;set;} = new();
+        public float lodDist {get;set;} = new();
+        public byte skinSectStart {get;set;} = new();
+        public byte skinSectCount {get;set;} = new();
+        public ushort pad {get;set;} = new();
 
         public IndexLOD(){}
 

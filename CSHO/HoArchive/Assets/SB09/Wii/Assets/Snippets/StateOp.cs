@@ -3,9 +3,11 @@ using System.ComponentModel;
 namespace SB09WiiAsset{
     public class StateOp{
         [TypeConverter(typeof(StateOpTypeConverter))]
-        public StateOpTypeEnum type {get; set;}
-        public byte pad {get; set;}
-        public ushort size {get; set;}
+        public StateOpTypeEnum type {get; set;} = new();
+        public byte pad {get; set;} = new();
+        public ushort size {get; set;} = new();
+
+        public StateOp(){}
 
         public StateOp(HoArchive.MemoryStreamEndian file){
             type = (StateOpTypeEnum)file.ReadByte();

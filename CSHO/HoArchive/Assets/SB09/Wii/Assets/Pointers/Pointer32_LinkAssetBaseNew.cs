@@ -7,6 +7,11 @@ namespace SB09WiiAsset{
     {
         public List<LinkAssetBaseNew> events { get; set; }
 
+        public Pointer32_LinkAssetsBaseNew() : base()
+        {
+            events = new();
+        }
+
         public Pointer32_LinkAssetsBaseNew(HoArchive.MemoryStreamEndian file, uint count) : base(file)
         {
             // Read events backwards

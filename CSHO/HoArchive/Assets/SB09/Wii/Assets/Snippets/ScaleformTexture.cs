@@ -4,7 +4,7 @@ using HoArchive;
 namespace SB09WiiAsset{
     public class ScaleformTexture{
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong ID {get; set;}
+        public ulong ID {get; set;} = new();
         public string name {get; set;}
 
         public ScaleformTexture(ulong textureID, string textureName){

@@ -5,23 +5,19 @@ namespace SB09WiiAsset{
     public class Pointer32_renderCustomizers : Pointer32{
         public List<renderCustomizer> renderCustomizers {get; set;}
 
+        public Pointer32_renderCustomizers() : base(){
+            renderCustomizers = new();
+        }
+
         public Pointer32_renderCustomizers(HoArchive.MemoryStreamEndian file, uint renderCustomizerCount) : base(file){
-            renderCustomizers = new List<renderCustomizer>();
-            file.Jump(_p);
-            for(int i=0; i<renderCustomizerCount; i++){
-                renderCustomizers.Add(new renderCustomizer(file));
-            }
-            file.Return();
+            renderCustomizers = ReadItems<renderCustomizer>(file, renderCustomizerCount, stream => new renderCustomizer(stream));
         }
 
         public new void Update(){
         }
 
         public new void Save(HoArchive.MemoryStreamEndian file){
-            base.Save(file);
-            foreach(renderCustomizer customizer in renderCustomizers){
-                customizer.Save(file);
-            }
+            SaveItems(file, renderCustomizers, (stream, item) => item.Save(stream));
         }
     }
 }

@@ -2,10 +2,15 @@ using System.ComponentModel;
 
 namespace SB09WiiAsset{
     public class Pointer32_Wii_GeometryStateOp : Pointer32{
-        public uint stateSize {get; set;}
+        public uint stateSize {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public Wii_GeometryStateOp geometryStateOp {get; set;}
         
+
+        public Pointer32_Wii_GeometryStateOp() : base(){
+            geometryStateOp = new();
+            stateSize = 0x48;
+        }
 
         public Pointer32_Wii_GeometryStateOp(HoArchive.MemoryStreamEndian file) : base(file){
             stateSize = file.ReadUInt32E();

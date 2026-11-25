@@ -2,10 +2,15 @@ using System.ComponentModel;
 
 namespace SB09WiiAsset{
     public class Pointer32_Wii_MaterialStateOp : Pointer32{
-        public uint stateSize {get; set;}
+        public uint stateSize {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public Wii_MaterialStateOp materialStateOp {get; set;}
         
+
+        public Pointer32_Wii_MaterialStateOp() : base(){
+            materialStateOp = new();
+            stateSize = 0x16;
+        }
 
         public Pointer32_Wii_MaterialStateOp(HoArchive.MemoryStreamEndian file) : base(file){
             stateSize = file.ReadUInt32E();

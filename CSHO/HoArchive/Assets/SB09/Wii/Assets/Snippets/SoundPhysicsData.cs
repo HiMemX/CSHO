@@ -1,10 +1,12 @@
 namespace SB09WiiAsset{
     public class SoundPhysicsData{
-        public float MinVelocity {get; set;}
-        public float MaxVelocity {get; set;}
-        public float MinRun {get; set;}
-        public float MaxRun {get; set;}
-        public float MaxRise {get; set;}
+        public float MinVelocity {get; set;} = new();
+        public float MaxVelocity {get; set;} = new();
+        public float MinRun {get; set;} = new();
+        public float MaxRun {get; set;} = new();
+        public float MaxRise {get; set;} = new();
+
+        public SoundPhysicsData(){}
 
         public SoundPhysicsData(HoArchive.MemoryStreamEndian file){
             MinVelocity = file.ReadFloat32E();

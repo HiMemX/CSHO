@@ -8,8 +8,12 @@ namespace SB09WiiAsset{
         public Pointer32_Techniques entries;
         public List<Technique> _entries {get {return entries.techniques;} set{entries.techniques = value;}}
         // Count not listed here as it's read by the techniques pointer
-        public byte pad {get; set;}
-        public ushort dataSize {get; set;}
+        public byte pad {get; set;} = new();
+        public ushort dataSize {get; set;} = new();
+
+        public MaterialParamFormatTableAsset(){
+            entries = new();
+        }
 
         public MaterialParamFormatTableAsset(HoArchive.MemoryStreamEndian file){
             entries = new Pointer32_Techniques(file);

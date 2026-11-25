@@ -5,10 +5,10 @@ using System.ComponentModel;
 
 namespace SB09WiiAsset{
     public class BatchInfo{
-        public ushort vertStart {get;set;}
-        public ushort vertCount {get;set;}
-        public ushort triStart {get;set;}
-        public ushort triCount {get;set;}
+        public ushort vertStart {get;set;} = new();
+        public ushort vertCount {get;set;} = new();
+        public ushort triStart {get;set;} = new();
+        public ushort triCount {get;set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public SkinCount_Array4 skinCount {get;set;}
 

@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 namespace SB09WiiAsset{
     public class CollKDTree{
-        public uint branchCount {get;set;}
+        public uint branchCount {get;set;} = new();
         public Pointer32_Branches branchList;
         public List<Branch> _branchList {get {return branchList.branches;} set{branchList.branches = value;}}
 
-        public uint triangleCount {get;set;}
+        public uint triangleCount {get;set;} = new();
         public Pointer32_Triangles triangleList;
         public List<Triangle> _triangleList {get {return triangleList.triangles;} set{triangleList.triangles = value;}}
 

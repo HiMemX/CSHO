@@ -6,7 +6,11 @@ namespace SB09WiiAsset{
         [TypeConverter(typeof(Point3Converter))]
         public HoArchive.float3 rotation {get; set;} // Not like this in Dwarf, 
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong target {get; set;}
+        public ulong target {get; set;} = new();
+
+        public uTargetMode(){
+            rotation = new();
+        }
 
         public uTargetMode(HoArchive.MemoryStreamEndian file){
             file.Jump((uint)file.Position);

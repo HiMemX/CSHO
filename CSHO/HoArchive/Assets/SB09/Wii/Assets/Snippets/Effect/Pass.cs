@@ -1,6 +1,6 @@
 namespace SB09WiiAsset{
     public class Pass{
-        public ushort shaderIndex {get; set;}
+        public ushort shaderIndex {get; set;} = new();
 
         public Pass(){}
 

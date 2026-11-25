@@ -4,9 +4,9 @@ using HoArchive;
 namespace SB09WiiAsset{
     public class MovepointType : PlatformType{
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong StartingMovePoint {get;set;}
-        public uint flags {get;set;}
-        public float Speed {get;set;}
+        public ulong StartingMovePoint {get;set;} = new();
+        public uint flags {get;set;} = new();
+        public float Speed {get;set;} = new();
 
         public MovepointType() : base(){
             type = enPlatformType.MOVEPOINT;

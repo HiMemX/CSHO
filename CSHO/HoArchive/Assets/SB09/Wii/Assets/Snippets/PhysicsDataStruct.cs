@@ -2,18 +2,22 @@ using System.ComponentModel;
 
 namespace SB09WiiAsset{
     public class PhysicsDataStruct{
-        public float mass {get; set;}
-        public float friction {get; set;}
-        public float elasticity {get; set;}
-        public float linearDamping {get; set;}
-        public float angularDamping {get; set;}
-        public float settleTimer {get; set;}
-        public byte magnetic_Charge {get; set;}
-        public byte pad1 {get; set;}
-        public byte pad2 {get; set;}
-        public byte pad3 {get; set;}
+        public float mass {get; set;} = new();
+        public float friction {get; set;} = new();
+        public float elasticity {get; set;} = new();
+        public float linearDamping {get; set;} = new();
+        public float angularDamping {get; set;} = new();
+        public float settleTimer {get; set;} = new();
+        public byte magnetic_Charge {get; set;} = new();
+        public byte pad1 {get; set;} = new();
+        public byte pad2 {get; set;} = new();
+        public byte pad3 {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public SoundSourcesPhysics SoundsPhysics {get; set;}
+
+        public PhysicsDataStruct(){
+            SoundsPhysics = new();
+        }
 
         public PhysicsDataStruct(HoArchive.MemoryStreamEndian file){
             mass = file.ReadFloat32E();

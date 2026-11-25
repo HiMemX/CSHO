@@ -1,7 +1,9 @@
 namespace SB09WiiAsset{
     public class instanceParamHandle{
-        public uint part1 {get; set;}
-        public uint part2 {get; set;}
+        public uint part1 {get; set;} = new();
+        public uint part2 {get; set;} = new();
+
+        public instanceParamHandle(){}
 
         public instanceParamHandle(HoArchive.MemoryStreamEndian file){
             part1 = file.ReadUInt32E();

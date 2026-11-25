@@ -7,14 +7,13 @@ namespace SB09WiiAsset{
     public class Pointer32_MoreConditions : Pointer32{
         public List<ConditionDef> MoreConditions {get; set;}
 
+        public Pointer32_MoreConditions() : base(){
+            MoreConditions = new();
+        }
+
         public Pointer32_MoreConditions(HoArchive.MemoryStreamEndian file, uint count) : base(file){
             
-            MoreConditions = new List<ConditionDef>();
-            file.Jump(_p);
-            for(int i=0; i<count; i++){
-                MoreConditions.Add(new ConditionDef(file));
-            }
-            file.Return();
+            MoreConditions = ReadItems<ConditionDef>(file, count, stream => new ConditionDef(stream));
         }
 
         public new void Update(){
@@ -28,11 +27,7 @@ namespace SB09WiiAsset{
 
         public new void Save(HoArchive.MemoryStreamEndian file)
         {
-            base.Save(file);
-            foreach (ConditionDef param in MoreConditions)
-            {
-                param.Save(file);
-            }
+            SaveItems(file, MoreConditions, (stream, item) => item.Save(stream));
         }
     }
 }

@@ -3,11 +3,15 @@ using HoArchive;
 
 namespace SB09WiiAsset{
     public class WiiSkinPalette{
-        public ushort displayListSize {get;set;}
-        public ushort matCount {get;set;}
+        public ushort displayListSize {get;set;} = new();
+        public ushort matCount {get;set;} = new();
         public Pointer32_MatList matList;
         public List<Mat> _matList  {get {return matList.matList;} set {matList.matList = value;}}
     
+        public WiiSkinPalette(){
+            matList = new();
+        }
+
         public WiiSkinPalette(MemoryStreamEndian file){
             displayListSize = file.ReadUInt16E();
             matCount = file.ReadUInt16E();

@@ -14,6 +14,12 @@ namespace SB09WiiAsset{
         public List<byte> element1 {get {return _element1.b;} set{_element1.b = value;}}
         public List<byte> element2 {get {return _element2.b;} set{_element2.b = value;}}
 
+        public Pointer32_b_Array3(){
+            _element0 = new();
+            _element1 = new();
+            _element2 = new();
+        }
+
         public Pointer32_b_Array3(List<Pointer32_b> elements){
             _element0 = elements[0];
             _element1 = elements[1];

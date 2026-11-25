@@ -5,6 +5,10 @@ namespace SB09WiiAsset{
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public soundIndices indices {get; set;}
 
+        public Pointer32_soundIndices() : base(){
+            indices = new();
+        }
+
         public Pointer32_soundIndices(soundIndices indices){
             this.indices = indices;
         }

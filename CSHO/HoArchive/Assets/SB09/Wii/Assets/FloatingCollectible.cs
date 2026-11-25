@@ -27,7 +27,7 @@ namespace SB09WiiAsset{
         public uGameName uItemType {get;set;} =new();// Name is different
         [TypeConverter(typeof(GameNameConverter))]
         public GameName gameName {get;set;} = GameName.SB09;
-        public bool isDrivenBy {get;set;} // Different from DWARF
+        public bool isDrivenBy {get;set;} = new(); // Different from DWARF
         [TypeConverter(typeof(AssetIDConverter))]
         public ulong DrivenByObject {get;set;} = 0;
 

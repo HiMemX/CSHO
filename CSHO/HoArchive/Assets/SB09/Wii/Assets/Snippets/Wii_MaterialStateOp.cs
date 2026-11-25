@@ -6,8 +6,13 @@ namespace SB09WiiAsset{
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public Wii_MaterialSettings mat {get; set;}
         [TypeConverter(typeof(ByteBinaryStringConverter))]
-        public byte flags { get; set; }
-        public byte pad1 {get; set;}
+        public byte flags { get; set; } = new();
+        public byte pad1 {get; set;} = new();
+
+        public Wii_MaterialStateOp() : base(){
+            mat = new();
+            size = 0x16;
+        }
 
         public Wii_MaterialStateOp(HoArchive.MemoryStreamEndian file) : base(file){
             mat = new Wii_MaterialSettings(file);

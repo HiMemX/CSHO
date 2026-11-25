@@ -5,18 +5,16 @@ namespace SB09WiiAsset{
     public class Pointer32_float3s : Pointer32{
         public List<float3> coefficients {get;set;}
 
+        public Pointer32_float3s() : base(){
+            coefficients = new();
+        }
+
         public Pointer32_float3s(List<float3> coefficients){
             this.coefficients = coefficients;
         }
 
         public Pointer32_float3s(HoArchive.MemoryStreamEndian file, uint count) : base(file){
-            file.Jump(_p);
-            coefficients = new();
-            for(int i=0; i<count; i++){
-                coefficients.Add(new float3(file));
-            }
-
-            file.Return();
+            coefficients = ReadItems<float3>(file, count, stream => new float3(stream));
         }
 
         public new void Update(){
@@ -25,10 +23,7 @@ namespace SB09WiiAsset{
         public new void Save(HoArchive.MemoryStreamEndian file){
             if(_p == 0){return;}
 
-            base.Save(file);
-            foreach(float3 batch in coefficients){
-                batch.Save(file);
-            }
+            SaveItems(file, coefficients, (stream, item) => item.Save(stream));
         }
     }
 }

@@ -6,9 +6,11 @@ namespace SB09WiiAsset;
 
 public class uGameName{
     [TypeConverter(typeof(eSBFloatingItemTypeConverter))]
-    public eUPFloatingItemType UPItemType{get;set;}
+    public eUPFloatingItemType UPItemType{get;set;} = new();
     [TypeConverter(typeof(eSBFloatingItemTypeConverter))]
-    public eSBFloatingItemType SBItemType {get;set;}
+    public eSBFloatingItemType SBItemType {get;set;} = new();
+
+    public uGameName(){}
 
     public uGameName(MemoryStreamEndian file, GameName game){
         if(game == GameName.UP09){

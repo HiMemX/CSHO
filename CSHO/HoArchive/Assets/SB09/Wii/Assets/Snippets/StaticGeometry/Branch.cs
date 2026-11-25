@@ -1,9 +1,9 @@
 namespace SB09WiiAsset{
     public class Branch{
-        public uint leftInfo {get;set;}
-        public uint rightInfo {get;set;}
-        public float leftValue {get;set;}
-        public float rightValue {get;set;}
+        public uint leftInfo {get;set;} = new();
+        public uint rightInfo {get;set;} = new();
+        public float leftValue {get;set;} = new();
+        public float rightValue {get;set;} = new();
 
         public Branch(){}
 

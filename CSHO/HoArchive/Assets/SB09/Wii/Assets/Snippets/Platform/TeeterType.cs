@@ -3,12 +3,12 @@ using HoArchive;
 
 namespace SB09WiiAsset{
     public class TeeterType : PlatformType{
-        public float InitialTilt {get;set;}
-        public float MaxTilt {get;set;}
-        public float MaxIdleTilt {get;set;}
-        public float Speed {get;set;}
-        public float SpeedIdle {get;set;}
-        public bool TiltBack {get;set;}
+        public float InitialTilt {get;set;} = new();
+        public float MaxTilt {get;set;} = new();
+        public float MaxIdleTilt {get;set;} = new();
+        public float Speed {get;set;} = new();
+        public float SpeedIdle {get;set;} = new();
+        public bool TiltBack {get;set;} = new();
 
         public TeeterType() : base(){
             type = enPlatformType.TEETER;

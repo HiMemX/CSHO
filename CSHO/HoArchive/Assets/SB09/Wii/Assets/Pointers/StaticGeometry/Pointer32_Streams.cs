@@ -5,6 +5,7 @@ namespace SB09WiiAsset{
         public List<VertexStream> streams {get;set;}
 
         public Pointer32_Streams(){
+            streams = new();
         }
 
         public Pointer32_Streams(List<VertexStream> streams){
@@ -12,23 +13,14 @@ namespace SB09WiiAsset{
         }
 
         public Pointer32_Streams(HoArchive.MemoryStreamEndian file, ushort count) : base(file){
-            file.Jump(_p);
-            streams = new();
-            for(int i=0; i<count; i++){
-                streams.Add(new VertexStream(file));
-            }
-
-            file.Return();
+            streams = ReadItems<VertexStream>(file, count, stream => new VertexStream(stream));
         }
 
         public new void Update(){
         }
 
         public new void Save(HoArchive.MemoryStreamEndian file){
-            base.Save(file);
-            foreach(VertexStream stream in streams){
-                stream.Save(file);
-            }
+            SaveItems(file, streams, (stream, item) => item.Save(stream));
         }
     }
 }

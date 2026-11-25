@@ -5,9 +5,11 @@ namespace SB09WiiAsset;
 
 public class __MoreConditions__
 {
-    public uint count { get; set; }
-    public uint data { get; set; }
+    public uint count { get; set; } = new();
+    public uint data { get; set; } = new();
 
+
+    public __MoreConditions__(){}
 
     public __MoreConditions__(MemoryStreamEndian file)
     {

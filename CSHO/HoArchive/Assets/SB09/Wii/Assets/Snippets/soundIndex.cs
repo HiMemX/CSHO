@@ -1,9 +1,9 @@
 namespace SB09WiiAsset{
     public class soundIndex{
-        public bool isfile {get; set;} // 0x01 is yes
-        public byte pad0 {get; set;}
-        public bool isdirectory {get; set;} // 0x80 if yes
-        public byte index {get; set;}
+        public bool isfile {get; set;} = new(); // 0x01 is yes
+        public byte pad0 {get; set;} = new();
+        public bool isdirectory {get; set;} = new(); // 0x80 if yes
+        public byte index {get; set;} = new();
 
         public soundIndex(){}
 

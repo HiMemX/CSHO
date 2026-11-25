@@ -3,23 +3,23 @@ using HoArchive;
 
 namespace SB09WiiAsset{
     public class MechanismType : PlatformType{
-        public byte MechType {get;set;} // Maybe convert to enum later
-        public byte flags {get;set;}
-        public byte SlideAxis {get;set;}
-        public byte RotationAxis {get;set;}
-        public byte ScaleAxis {get;set;}
-        public float SlideDistance {get;set;}
-        public float SlideDuration {get;set;}
-        public float SlideAccelTime {get;set;}
-        public float SlideDecelTime {get;set;}
-        public float RotationDistance {get;set;}
-        public float RotationDuration {get;set;}
-        public float RotationAccelTime {get;set;}
-        public float RotationDecelTime {get;set;}
-        public float ReturnDelay {get;set;}
-        public float EndCycleDelay {get;set;}
-        public float ScaleAmount {get;set;}
-        public float ScaleDuration {get;set;}
+        public byte MechType {get;set;} = new(); // Maybe convert to enum later
+        public byte flags {get;set;} = new();
+        public byte SlideAxis {get;set;} = new();
+        public byte RotationAxis {get;set;} = new();
+        public byte ScaleAxis {get;set;} = new();
+        public float SlideDistance {get;set;} = new();
+        public float SlideDuration {get;set;} = new();
+        public float SlideAccelTime {get;set;} = new();
+        public float SlideDecelTime {get;set;} = new();
+        public float RotationDistance {get;set;} = new();
+        public float RotationDuration {get;set;} = new();
+        public float RotationAccelTime {get;set;} = new();
+        public float RotationDecelTime {get;set;} = new();
+        public float ReturnDelay {get;set;} = new();
+        public float EndCycleDelay {get;set;} = new();
+        public float ScaleAmount {get;set;} = new();
+        public float ScaleDuration {get;set;} = new();
 
         public MechanismType() : base(){
             type = enPlatformType.MECHANISM;

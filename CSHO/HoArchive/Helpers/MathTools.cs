@@ -69,9 +69,11 @@ namespace HoArchive{
 
 
     public class FloatColorRGB{
-        public float r {get; set;}
-        public float g {get; set;}
-        public float b {get; set;}
+        public float r {get; set;} = 0;
+        public float g {get; set;} = 0;
+        public float b {get; set;} = 0;
+
+        public FloatColorRGB(){}
 
         public FloatColorRGB(float r, float g, float b){
             this.r = r;
@@ -92,10 +94,12 @@ namespace HoArchive{
     }
 
     public class RGBA8888{
-        public byte r {get; set;}
-        public byte g {get; set;}
-        public byte b {get; set;}
-        public byte a {get; set;}
+        public byte r {get; set;} = 0;
+        public byte g {get; set;} = 0;
+        public byte b {get; set;} = 0;
+        public byte a {get; set;} = 0;
+
+        public RGBA8888(){}
 
         public RGBA8888(byte r, byte g, byte b, byte a){
             this.r = r;
@@ -118,10 +122,12 @@ namespace HoArchive{
     }
 
     public class float4{
-        public float x {get; set;}
-        public float y {get; set;}
-        public float z {get; set;}
-        public float w {get; set;}
+        public float x {get; set;} = 0;
+        public float y {get; set;} = 0;
+        public float z {get; set;} = 0;
+        public float w {get; set;} = 0;
+
+        public float4(){}
 
         public float4(BinaryReaderEndian file){ // Unused
             x = file.ReadFloat32E();

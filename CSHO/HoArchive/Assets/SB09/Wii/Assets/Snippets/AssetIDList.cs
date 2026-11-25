@@ -57,6 +57,8 @@ public class AssetIDClassConverter : TypeConverter
 [TypeConverter(typeof(CollectionConverter))]
 public class AssetIDList : Collection<AssetID>
 {
+    public AssetIDList(){}
+
     public AssetIDList(HoArchive.MemoryStreamEndian file, uint count)
     {
         for (int i = 0; i < count; i++) Add(new AssetID(file.ReadUInt64E()));

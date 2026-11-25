@@ -2,21 +2,23 @@ using System.ComponentModel;
 
 namespace SB09WiiAsset{
     public class Wii_MaterialSettings{
-        public byte diffuseMapParamIndex {get; set;}
-        public byte lightMapParamIndex {get; set;}
-        public byte envMapParamIndex {get; set;}
-        public byte colorMulParamIndex {get; set;}
-        public byte glowMapParamIndex {get; set;}
-        public byte envMapScaleParamIndex {get; set;}
-        public byte uvSet1ParamIndex {get; set;}
-        public byte uvSet2ParamIndex {get; set;}
-        public byte alphaMulParamIndex {get; set;}
-        public byte ambientScaleParamIndex {get; set;}
-        public byte diffuseMap1ParamIndex {get; set;}
-        public byte blendMapParamIndex {get; set;}
-        public byte textureBlendFactorIndex {get; set;}
-        public byte bumpMapParamIndex {get; set;}
-        public ushort pad {get; set;}
+        public byte diffuseMapParamIndex {get; set;} = new();
+        public byte lightMapParamIndex {get; set;} = new();
+        public byte envMapParamIndex {get; set;} = new();
+        public byte colorMulParamIndex {get; set;} = new();
+        public byte glowMapParamIndex {get; set;} = new();
+        public byte envMapScaleParamIndex {get; set;} = new();
+        public byte uvSet1ParamIndex {get; set;} = new();
+        public byte uvSet2ParamIndex {get; set;} = new();
+        public byte alphaMulParamIndex {get; set;} = new();
+        public byte ambientScaleParamIndex {get; set;} = new();
+        public byte diffuseMap1ParamIndex {get; set;} = new();
+        public byte blendMapParamIndex {get; set;} = new();
+        public byte textureBlendFactorIndex {get; set;} = new();
+        public byte bumpMapParamIndex {get; set;} = new();
+        public ushort pad {get; set;} = new();
+
+        public Wii_MaterialSettings(){}
 
         public Wii_MaterialSettings(HoArchive.MemoryStreamEndian file){
             diffuseMapParamIndex = file.ReadByte();

@@ -7,46 +7,48 @@ using System.Linq;
 namespace SB09WiiAsset{
     public class GeometryAsset : Asset.AssetEntity{
         [TypeConverter(typeof(Point4Converter))]
-        public HoArchive.float4 boundSphere {get;set;}
+        public HoArchive.float4 boundSphere {get;set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public BoundAABB boundAABB {get; set;}
+        public BoundAABB boundAABB {get; set;} = new();
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong materialID {get;set;}
+        public ulong materialID {get;set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public ViewAttrib viewAttrib {get;set;} // Single byte
-        public byte flags {get;set;}
-        public byte wiiIndexStride {get;set;}
-        public byte wiiIndexSkin {get;set;}
-        public ushort vertexCount {get;set;}
-        public byte prim {get;set;} // Might be an enumerator
-        public byte geomParamCount {get;set;}
-        public byte rendParamCount {get;set;}
-        public byte streamCount {get;set;}
-        public ushort streamMapBufferCount {get;set;}
+        public ViewAttrib viewAttrib {get;set;}  = new();// Single byte
+        public byte flags {get;set;} = new();
+        public byte wiiIndexStride {get;set;} = new();
+        public byte wiiIndexSkin {get;set;} = new();
+        public ushort vertexCount {get;set;} = new();
+        public byte prim {get;set;}  = new();// Might be an enumerator
+        public byte geomParamCount {get;set;} = new();
+        public byte rendParamCount {get;set;} = new();
+        public byte streamCount {get;set;} = new();
+        public ushort streamMapBufferCount {get;set;} = new();
         
         // I just found out how to handle pointers better :D
-        public Pointer32_MaterialParams geomParams;
-        public Pointer32_MaterialParams rendParams;
+        public Pointer32_MaterialParams geomParams  = new();
+        public Pointer32_MaterialParams rendParams = new();
         public List<MaterialParam> _geomParams {get {return geomParams.materialParams;} set {geomParams.materialParams = value;}}
         public List<MaterialParam> _rendParams {get {return rendParams.materialParams;} set {rendParams.materialParams = value;}}
         
-        public Pointer32_Streams streams;
-        public Pointer32_b streamMapBuffer; // Always points to 8 zero bytes? (Never used)
+        public Pointer32_Streams streams = new();
+        public Pointer32_b streamMapBuffer = new(); // Always points to 8 zero bytes? (Never used)
         public List<VertexStream> _streams {get {return streams.streams;} set{streams.streams = value;}}
         public List<byte> _streamMapBuffer {get {return streamMapBuffer.b;} set{streamMapBuffer.b = value;}}
         
-        public uint sectorLight {get;set;}
+        public uint sectorLight {get;set;} = new();
 
-        public Pointer32_CollKDTree collKDTree;
+        public Pointer32_CollKDTree collKDTree = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public CollKDTree _collKDTree {get {return collKDTree.collKDTree;} set {collKDTree.collKDTree = value;}}
 
-        public ushort lodCount {get;set;}
-        public ushort batchCount {get;set;}
-        public Pointer32_IndexLODs lods;
-        public Pointer32_BatchInfos batches;
+        public ushort lodCount {get;set;} = new();
+        public ushort batchCount {get;set;} = new();
+        public Pointer32_IndexLODs lods = new();
+        public Pointer32_BatchInfos batches = new();
         public List<IndexLOD> _lods {get {return lods.indexLODs;} set{lods.indexLODs = value;}}
         public List<BatchInfo> _batches {get {return batches.batchInfos;} set{batches.batchInfos = value;}}
+
+        public GeometryAsset(){}
 
         public GeometryAsset(HoArchive.MemoryStreamEndian file){
             boundSphere = new HoArchive.float4(file);

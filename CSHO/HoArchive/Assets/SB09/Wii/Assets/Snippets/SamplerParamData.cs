@@ -3,9 +3,9 @@ using System.ComponentModel;
 namespace SB09WiiAsset{
     public class SamplerParamData{
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong textureID {get; set;}
-        public uint wad {get; set;}
-        public float mipmaplodbias {get; set;}
+        public ulong textureID {get; set;} = new();
+        public uint wad {get; set;} = new();
+        public float mipmaplodbias {get; set;} = new();
 
         public SamplerParamData(){
             

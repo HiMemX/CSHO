@@ -4,9 +4,9 @@ using HoArchive;
 namespace SB09WiiAsset{
     public class SplineType : PlatformType{
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong StartingCurve {get;set;}
-        public float Speed {get;set;}
-        public float lean_modifier {get;set;}
+        public ulong StartingCurve {get;set;} = new();
+        public float Speed {get;set;} = new();
+        public float lean_modifier {get;set;} = new();
 
         public SplineType() : base(){
             type = enPlatformType.SPLINE;

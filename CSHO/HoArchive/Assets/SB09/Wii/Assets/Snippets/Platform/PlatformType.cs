@@ -4,10 +4,10 @@ using HoArchive;
 
 namespace SB09WiiAsset{
     public class PlatformType{ // Union style
-        public enPlatformType type; // Only supposed to be mod by program
-        public bool use_banking {get; set;}
-        public ushort MotionFlags {get;set;}
-        public int pad {get;set;}
+        public enPlatformType type = new(); // Only supposed to be mod by program
+        public bool use_banking {get; set;} = new();
+        public ushort MotionFlags {get;set;} = new();
+        public int pad {get;set;} = new();
 
         public PlatformType(){}
 

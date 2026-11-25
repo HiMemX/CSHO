@@ -9,23 +9,14 @@ namespace SB09WiiAsset{
         }
 
         public Pointer32_f(HoArchive.MemoryStreamEndian file, ushort count) : base(file){
-            file.Jump(_p);
-            f = new List<float>();
-            for(int i=0; i<count; i++){
-                f.Add(file.ReadFloat32E());
-            }
-
-            file.Return();
+            f = ReadItems<float>(file, count, stream => stream.ReadFloat32E());
         }
 
         public new void Update(){
         }
 
         public new void Save(HoArchive.MemoryStreamEndian file){
-            base.Save(file);
-            foreach(float flt in f){
-                file.WriteE(flt);
-            }
+            SaveItems(file, f, (stream, item) => stream.WriteE(item));
         }
     }
 }

@@ -1,6 +1,8 @@
 namespace SB09WiiAsset{
     public class ViewAttrib{
-        public byte spaceFilter {get;set;}
+        public byte spaceFilter {get;set;} = new();
+
+        public ViewAttrib(){}
 
         public ViewAttrib(HoArchive.MemoryStreamEndian file){
             spaceFilter = file.ReadByte();

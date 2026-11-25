@@ -1,6 +1,6 @@
 namespace SB09WiiAsset{
     public class RenderStageEntry{ // All this for a single byte :D
-        public byte lodIndex {get; set;}
+        public byte lodIndex {get; set;} = new();
 
         public RenderStageEntry(){}
 

@@ -2,6 +2,10 @@ namespace SB09WiiAsset{
     public class Pointer32_paddedString : Pointer32{
         public string str {get; set;}
 
+        public Pointer32_paddedString() : base(){
+            str = "";
+        }
+
         public Pointer32_paddedString(string str){
             this.str = str;
         }

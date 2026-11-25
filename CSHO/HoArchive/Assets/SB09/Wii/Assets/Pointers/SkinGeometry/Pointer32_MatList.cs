@@ -13,23 +13,14 @@ namespace SB09WiiAsset{
         }
 
         public Pointer32_MatList(HoArchive.MemoryStreamEndian file, ushort count) : base(file){
-            file.Jump(_p);
-            matList = new List<Mat>();
-            for(int x=0; x<count; x++){
-                matList.Add(new Mat(file));
-            }
-
-            file.Return();
+            matList = ReadItems<Mat>(file, count, stream => new Mat(stream));
         }
 
         public new void Update(){
         }
 
         public new void Save(HoArchive.MemoryStreamEndian file){
-            base.Save(file);
-            foreach(Mat mat in matList){
-                mat.Save(file);
-            }
+            SaveItems(file, matList, (stream, item) => item.Save(stream));
         }
     }
 }

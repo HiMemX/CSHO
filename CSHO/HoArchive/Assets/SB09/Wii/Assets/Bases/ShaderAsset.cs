@@ -3,11 +3,13 @@ using System.ComponentModel;
 namespace SB09WiiAsset{
     public abstract class ShaderAsset : Asset.AssetEntity{
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong vertexCodeID {get; set;}
+        public ulong vertexCodeID {get; set;} = new();
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong pixelCodeID {get; set;}
+        public ulong pixelCodeID {get; set;} = new();
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong vertexDeclID {get; set;}
+        public ulong vertexDeclID {get; set;} = new();
+
+        public ShaderAsset(){}
 
         public ShaderAsset(HoArchive.MemoryStreamEndian file){
             vertexCodeID = file.ReadUInt64E();

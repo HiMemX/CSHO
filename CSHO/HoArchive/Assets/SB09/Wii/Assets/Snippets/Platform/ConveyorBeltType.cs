@@ -3,8 +3,8 @@ using HoArchive;
 
 namespace SB09WiiAsset{
     public class ConveyorBeltType : PlatformType{
-        public float BeltSpeed {get;set;}
-        public uint MotionAxis {get;set;}
+        public float BeltSpeed {get;set;} = new();
+        public uint MotionAxis {get;set;} = new();
 
         public ConveyorBeltType() : base(){
             type = enPlatformType.CONVEYOR_BELT;

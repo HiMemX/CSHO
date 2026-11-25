@@ -10,6 +10,11 @@ namespace SB09WiiAsset{
         [TypeConverter(typeof(Point3Converter))]
         public HoArchive.float3 upper{get;set;}
         
+        public BoundAABB(){
+            lower = new();
+            upper = new();
+        }
+
         public BoundAABB(HoArchive.MemoryStreamEndian file){
             lower = new HoArchive.float3(file);
             upper = new HoArchive.float3(file);

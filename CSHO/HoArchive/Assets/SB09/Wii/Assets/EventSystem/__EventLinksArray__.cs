@@ -2,10 +2,14 @@ using System.Collections.Generic;
 
 namespace SB09WiiAsset{
     public class __EventLinksArray__{
-        public uint count;
+        public uint count = new();
         //public Pointer32_rawdata data; // Used for actual writing for now
         public Pointer32_LinkAssetsBaseNew linkAssetsBaseNew {get; set;}
         public List<LinkAssetBaseNew> _linkAssetsBaseNew {get {return linkAssetsBaseNew.events;} set {linkAssetsBaseNew.events = value;}}
+
+        public __EventLinksArray__(){
+            linkAssetsBaseNew = new();
+        }
 
         public __EventLinksArray__(HoArchive.MemoryStreamEndian file){
             count = file.ReadUInt32E();

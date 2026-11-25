@@ -5,6 +5,10 @@ namespace SB09WiiAsset{
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public CollKDTree collKDTree {get;set;}
 
+        public Pointer32_CollKDTree() : base(){
+            collKDTree = new();
+        }
+
         public Pointer32_CollKDTree(CollKDTree collKDTree){
             this.collKDTree = collKDTree;
         }

@@ -1,10 +1,10 @@
 
 namespace SB09WiiAsset{
     public class Feature{
-        public ushort passIndex {get; set;}
-        public byte passCount {get; set;}
-        public byte pad {get; set;}
-        public uint featureFlags {get; set;}
+        public ushort passIndex {get; set;} = new();
+        public byte passCount {get; set;} = new();
+        public byte pad {get; set;} = new();
+        public uint featureFlags {get; set;} = new();
 
         public Feature(){}
 

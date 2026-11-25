@@ -5,11 +5,13 @@ using Asset;
 namespace SB09WiiAsset{
     public class xBaseAsset : AssetEntity{
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong id {get; set;}
+        public ulong id {get; set;} = new();
         [TypeConverter(typeof(HoArchive.wmlTypeIDConverter))]
-        public HoArchive.wmlTypeID baseType {get; set;}
-        public ushort linkCount {get; set;}
-        public ushort baseFlags {get; set;}
+        public HoArchive.wmlTypeID baseType {get; set;}  = new();
+        public ushort linkCount {get; set;} = new();
+        public ushort baseFlags {get; set;} = new();
+
+        public xBaseAsset(){}
 
         public xBaseAsset(HoArchive.MemoryStreamEndian file){
             id = file.ReadUInt64E();

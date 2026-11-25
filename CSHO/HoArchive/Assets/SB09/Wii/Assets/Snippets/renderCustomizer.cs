@@ -2,10 +2,10 @@ using System.ComponentModel;
 
 namespace SB09WiiAsset{
     public class renderCustomizer{
-        public uint unknown0 {get; set;}
-        public uint unknown1 {get; set;}
+        public uint unknown0 {get; set;} = new();
+        public uint unknown1 {get; set;} = new();
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong unknown2 {get; set;}
+        public ulong unknown2 {get; set;} = new();
 
         public renderCustomizer(){}
 

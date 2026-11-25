@@ -6,29 +6,31 @@ namespace SB09WiiAsset{
     public class xEntAsset : xBaseAsset{
 
 
-        public byte flags {get; set;}
-        public byte subtype {get; set;}
-        public byte pad {get; set;}
-        public bool Targettable {get; set;}
-        public byte Pad0 {get; set;}
-        public byte MoreFlags {get; set;}
+        public byte flags {get; set;} = new();
+        public byte subtype {get; set;} = new();
+        public byte pad {get; set;} = new();
+        public bool Targettable {get; set;} = new();
+        public byte Pad0 {get; set;} = new();
+        public byte MoreFlags {get; set;} = new();
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong surfaceID {get; set;}
+        public ulong surfaceID {get; set;} = new();
         [TypeConverter(typeof(HoArchive.Point3Converter))]
-        public HoArchive.float3 Orientation {get; set;}
+        public HoArchive.float3 Orientation {get; set;} = new();
         [TypeConverter(typeof(HoArchive.Point3Converter))]
-        public HoArchive.float3 Pos {get; set;}
+        public HoArchive.float3 Pos {get; set;} = new();
         [TypeConverter(typeof(HoArchive.Point3Converter))]
-        public HoArchive.float3 Scale {get; set;}
+        public HoArchive.float3 Scale {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public ModelInstanceAsset modelInstance {get; set;}
+        public ModelInstanceAsset modelInstance {get; set;} = new();
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong animListID {get; set;}
+        public ulong animListID {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public PhysicsDataStruct physicsData {get; set;}
-        public uint Pad1 {get; set;}
-        public uint Pad2 {get; set;}
-        public uint Pad3 {get; set;}
+        public PhysicsDataStruct physicsData {get; set;} = new();
+        public uint Pad1 {get; set;} = new();
+        public uint Pad2 {get; set;} = new();
+        public uint Pad3 {get; set;} = new();
+
+        public xEntAsset() : base() {}
 
         public xEntAsset(HoArchive.MemoryStreamEndian file) : base(file){
             

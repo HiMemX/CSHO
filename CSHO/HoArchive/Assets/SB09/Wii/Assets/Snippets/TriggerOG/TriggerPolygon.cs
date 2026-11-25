@@ -5,7 +5,7 @@ namespace SB09WiiAsset;
 
 public class TriggerPolygon : TriggerSubtype{
     [TypeConverter(typeof(AssetIDConverter))]
-    public ulong BoundsID {get;set;}
+    public ulong BoundsID {get;set;} = new();
 
     public TriggerPolygon(){}
 

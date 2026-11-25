@@ -2,14 +2,19 @@ using System.ComponentModel;
 
 namespace SB09WiiAsset{
     public class SoundBankSource{
-        public byte streamed {get; set;}
-        public byte pad1 {get; set;}
-        public byte pad2 {get; set;}
-        public byte pad3 {get; set;}
+        public byte streamed {get; set;} = new();
+        public byte pad1 {get; set;} = new();
+        public byte pad2 {get; set;} = new();
+        public byte pad3 {get; set;} = new();
         [TypeConverter(typeof(HoArchive.SB09WiiPaddedStringPointerConverter))]
         public Pointer32_paddedString sourceString {get; set;}
         [TypeConverter(typeof(HoArchive.SB09WiiSoundIndicesPointerConverter))]
         public Pointer32_soundIndices indices {get; set;}
+
+        public SoundBankSource(){
+            sourceString = new();
+            indices = new();
+        }
 
         public SoundBankSource(HoArchive.MemoryStreamEndian file){
             streamed = file.ReadByte();

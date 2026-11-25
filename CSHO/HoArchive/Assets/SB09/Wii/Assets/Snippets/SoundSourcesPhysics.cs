@@ -11,6 +11,13 @@ namespace SB09WiiAsset{
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public SoundPhysicsData PhysicsData {get; set;}
 
+        public SoundSourcesPhysics(){
+            SoundHit = new();
+            SoundScrape = new();
+            SoundRoll = new();
+            PhysicsData = new();
+        }
+
         public SoundSourcesPhysics(HoArchive.MemoryStreamEndian file){
             SoundHit = new SoundBankSource(file);
             SoundScrape = new SoundBankSource(file);

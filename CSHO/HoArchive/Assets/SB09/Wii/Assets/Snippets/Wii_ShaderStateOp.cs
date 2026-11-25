@@ -7,11 +7,16 @@ namespace SB09WiiAsset
     {
 
         [TypeConverter(typeof(UInt32BinaryStringConverter))]
-        public uint flags { get; set; }
-        public byte matSource { get; set; }
-        public byte channelCount { get; set; }
-        public byte streamCount { get; set; }
-        public byte uvMapping { get; set; }
+        public uint flags { get; set; } = new();
+        public byte matSource { get; set; } = new();
+        public byte channelCount { get; set; } = new();
+        public byte streamCount { get; set; } = new();
+        public byte uvMapping { get; set; } = new();
+
+        public Wii_ShaderStateOp() : base()
+        {
+            size = 0x0C;
+        }
 
         public Wii_ShaderStateOp(HoArchive.MemoryStreamEndian file) : base(file)
         {

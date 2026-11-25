@@ -4,17 +4,17 @@ using HoArchive;
 namespace SB09WiiAsset{
     public class ScriptEntry
     {
-        public float delay { get; set; }
-        public uint unknown0 { get; set; }
+        public float delay { get; set; } = new();
+        public uint unknown0 { get; set; } = new();
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong dstAsset { get; set; }
+        public ulong dstAsset { get; set; } = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public __dstEvent__ dstEvent { get; set; }
-        public bool unknown1 { get; set; }
-        public byte unknown2 { get; set; }
-        public byte unknown3 { get; set; }
-        public byte unknown4 { get; set; }
-        public uint unknown5 { get; set; }
+        public bool unknown1 { get; set; } = new();
+        public byte unknown2 { get; set; } = new();
+        public byte unknown3 { get; set; } = new();
+        public byte unknown4 { get; set; } = new();
+        public uint unknown5 { get; set; } = new();
 
         public ScriptEntry()
         {

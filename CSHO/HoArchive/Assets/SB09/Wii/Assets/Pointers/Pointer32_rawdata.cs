@@ -4,6 +4,8 @@ namespace SB09WiiAsset{
     public class Pointer32_rawdata : Pointer32{
         public List<byte> data = new List<byte>();
 
+        public Pointer32_rawdata() : base(){}
+
         public Pointer32_rawdata(HoArchive.MemoryStreamEndian file, long datalen) : base(file){
             file.Jump(_p);
             if(datalen != 0){

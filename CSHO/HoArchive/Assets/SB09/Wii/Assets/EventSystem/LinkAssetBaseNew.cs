@@ -9,12 +9,12 @@ namespace SB09WiiAsset{
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public __dstEvent__ dstEvent { get; set; }
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong dstAssetID { get; set; }
+        public ulong dstAssetID { get; set; } = new();
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong chkAssetID { get; set; }
-        public bool chkSourceParams { get; set; } // 0x20
-        public bool disabled { get; set; } // 0x21
-        public uint chkSourceMask { get; set; } // 0x24
+        public ulong chkAssetID { get; set; } = new();
+        public bool chkSourceParams { get; set; } = new(); // 0x20
+        public bool disabled { get; set; } = new(); // 0x21
+        public uint chkSourceMask { get; set; } = new(); // 0x24
 
         public LinkAssetBaseNew()
         {

@@ -2,14 +2,16 @@ using System.ComponentModel;
 
 namespace SB09WiiAsset{
     public class ChannelInfo{
-        public byte vtype {get; set;}
-        public byte vfrac {get; set;}
-        public byte vindex {get; set;}
-        public byte vcmp {get; set;}
-        public byte ifmt {get; set;}
-        public byte voffset {get; set;}
-        public byte vstride {get; set;}
-        public byte pad {get; set;}
+        public byte vtype {get; set;} = new();
+        public byte vfrac {get; set;} = new();
+        public byte vindex {get; set;} = new();
+        public byte vcmp {get; set;} = new();
+        public byte ifmt {get; set;} = new();
+        public byte voffset {get; set;} = new();
+        public byte vstride {get; set;} = new();
+        public byte pad {get; set;} = new();
+
+        public ChannelInfo(){}
 
         public ChannelInfo(HoArchive.MemoryStreamEndian file){
             vtype = file.ReadByte();

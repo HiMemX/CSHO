@@ -1,9 +1,9 @@
 namespace SB09WiiAsset{
     public class Triangle{
-        public uint v0 {get;set;} // This is a pointer to the vertex rawblob
-        public int v1flags {get;set;}
-        public int v2flags {get;set;}
-        public uint offset {get;set;}
+        public uint v0 {get;set;} = new(); // This is a pointer to the vertex rawblob
+        public int v1flags {get;set;} = new();
+        public int v2flags {get;set;} = new();
+        public uint offset {get;set;} = new();
 
         public Triangle(){}
 

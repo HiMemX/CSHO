@@ -10,6 +10,12 @@ namespace SB09WiiAsset{
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public MaterialParamFormatTableAsset element2 {get; set;}
 
+        public MaterialParamFormatTableAsset_Array3(){
+            element0 = new();
+            element1 = new();
+            element2 = new();
+        }
+
         public MaterialParamFormatTableAsset_Array3(List<MaterialParamFormatTableAsset> param){
             element0 = param[0];
             element1 = param[1];

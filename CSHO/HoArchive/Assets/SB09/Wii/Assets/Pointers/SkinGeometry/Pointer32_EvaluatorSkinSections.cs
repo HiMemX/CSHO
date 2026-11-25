@@ -13,23 +13,14 @@ namespace SB09WiiAsset{
         }
 
         public Pointer32_EvaluatorSkinSections(HoArchive.MemoryStreamEndian file, ushort count) : base(file){
-            file.Jump(_p);
-            evaluatorSkinSections = new List<EvaluatorSkinSection>();
-            for(int x=0; x<count; x++){
-                evaluatorSkinSections.Add(new EvaluatorSkinSection(file));
-            }
-
-            file.Return();
+            evaluatorSkinSections = ReadItems<EvaluatorSkinSection>(file, count, stream => new EvaluatorSkinSection(stream));
         }
 
         public new void Update(){
         }
 
         public new void Save(HoArchive.MemoryStreamEndian file){
-            base.Save(file);
-            foreach(EvaluatorSkinSection section in evaluatorSkinSections){
-                section.Save(file);
-            }
+            SaveItems(file, evaluatorSkinSections, (stream, item) => item.Save(stream));
         }
     }
 }

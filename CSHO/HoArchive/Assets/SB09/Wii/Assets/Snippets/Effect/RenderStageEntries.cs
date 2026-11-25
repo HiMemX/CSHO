@@ -12,6 +12,13 @@ namespace SB09WiiAsset{
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public RenderStageEntry element3{get;set;}
 
+        public RenderStageEntries(){
+            element0 = new();
+            element1 = new();
+            element2 = new();
+            element3 = new();
+        }
+
         public RenderStageEntries(List<RenderStageEntry> entries){
             element0 = entries[0];
             element1 = entries[1];

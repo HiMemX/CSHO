@@ -1,7 +1,7 @@
 namespace SB09WiiAsset{
     public class LOD{
-        public ushort featureIndex {get; set;}
-        public ushort featureCount {get; set;}
+        public ushort featureIndex {get; set;} = new();
+        public ushort featureCount {get; set;} = new();
 
         public LOD(){}
 

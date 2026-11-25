@@ -2,9 +2,11 @@
 
 namespace SB09WiiAsset{
     public class Pointer32_MaterialParamFormatTableAsset : Pointer32{
-        public byte count {get; set;}
-        public byte pad {get; set;}
-        public ushort dataSize {get; set;}
+        public byte count {get; set;} = new();
+        public byte pad {get; set;} = new();
+        public ushort dataSize {get; set;} = new();
+
+        public Pointer32_MaterialParamFormatTableAsset() : base(){}
 
         public Pointer32_MaterialParamFormatTableAsset(HoArchive.MemoryStreamEndian file) : base(file){
             count = file.ReadByte();

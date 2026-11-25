@@ -15,6 +15,14 @@ namespace SB09WiiAsset{
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public DirLight element4 {get; set;}
 
+        public DirLight_Array5(){
+            element0 = new();
+            element1 = new();
+            element2 = new();
+            element3 = new();
+            element4 = new();
+        }
+
         public DirLight_Array5(MemoryStreamEndian file){
             element0 = new DirLight(file);
             element1 = new DirLight(file);

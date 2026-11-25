@@ -3,13 +3,15 @@ using HoArchive;
 
 namespace SB09WiiAsset{
     public class dirTweak{
-        public float yaw {get;set;}
-        public float pitch {get;set;}
+        public float yaw {get;set;} = new();
+        public float pitch {get;set;} = new();
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong target {get;set;}
-        public float yaw_range {get;set;}
-        public float pitch_range {get;set;}
-        public float rigidity {get;set;}
+        public ulong target {get;set;} = new();
+        public float yaw_range {get;set;} = new();
+        public float pitch_range {get;set;} = new();
+        public float rigidity {get;set;} = new();
+
+        public dirTweak(){}
 
         public dirTweak(HoArchive.MemoryStreamEndian file){
             yaw = file.ReadFloat32E();

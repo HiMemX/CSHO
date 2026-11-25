@@ -26,6 +26,12 @@ namespace SB09WiiAsset{
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
         public ulong parentID {get; set;} = 0;
 
+        public ModelInstanceAsset(){
+            instanceParams = new();
+            renderCustomizers = new();
+            shadowColorOverride = new();
+        }
+
         public ModelInstanceAsset(HoArchive.MemoryStreamEndian file){
             modelPrototypeID = file.ReadUInt64E();
             lightKitID = file.ReadUInt64E();
