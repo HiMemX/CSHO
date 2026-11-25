@@ -5,21 +5,21 @@ using HoArchive;
 
 namespace SB09WiiAsset{
     public class Curve : Asset.AssetEntity{
-        public int ClosedCurve { get; set; }
+        public int ClosedCurve { get; set; } = 0;
         [TypeConverter(typeof(HoArchive.Point3Converter))]
-        public float3 LowBounds { get; set; }
+        public float3 LowBounds { get; set; } = new();
         [TypeConverter(typeof(HoArchive.Point3Converter))]
-        public float3 HighBounds { get; set; }
+        public float3 HighBounds { get; set; } = new();
         
-        public Pointer32_float3s Coefficients;
-        public Pointer32_f SegmentLengths;
-        public Pointer32_b ParamValues;
+        public Pointer32_float3s Coefficients = new();
+        public Pointer32_f SegmentLengths = new();
+        public Pointer32_b ParamValues = new();
 
         public List<float3> _Coefficients {get {return Coefficients.coefficients;} set {Coefficients.coefficients = value;}}
         public List<float> _SegmentLengths {get {return SegmentLengths.f;} set {SegmentLengths.f = value;}}
         public List<byte> _ParamValues {get {return ParamValues.b;} set {ParamValues.b = value;}}
 
-
+        public Curve(){}
 
         public Curve(HoArchive.MemoryStreamEndian file)
         {

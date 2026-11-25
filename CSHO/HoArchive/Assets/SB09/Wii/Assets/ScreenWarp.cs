@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class ScreenWarp : Asset.AssetEntity{
+        public ScreenWarp(){
+        }
+
         public ScreenWarp(HoArchive.MemoryStreamEndian file){
         }
 

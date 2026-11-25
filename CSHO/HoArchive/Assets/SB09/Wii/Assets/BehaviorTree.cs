@@ -3,6 +3,9 @@ namespace SB09WiiAsset{
         public BehaviorTree(HoArchive.MemoryStreamEndian file){
         }
 
+        public BehaviorTree(){
+        }
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

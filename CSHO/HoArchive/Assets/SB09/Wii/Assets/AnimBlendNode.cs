@@ -1,5 +1,7 @@
 namespace SB09WiiAsset{
     public class AnimBlendNode : Asset.AssetEntity{
+        
+        public AnimBlendNode(){}
         public AnimBlendNode(HoArchive.MemoryStreamEndian file){
         }
 

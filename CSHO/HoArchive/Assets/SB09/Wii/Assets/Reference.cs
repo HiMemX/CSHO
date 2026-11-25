@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class Reference : Asset.AssetEntity{
+        public Reference(){
+        }
+
         public Reference(HoArchive.MemoryStreamEndian file){
         }
 

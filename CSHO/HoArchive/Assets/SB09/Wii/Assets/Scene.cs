@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class Scene : Asset.AssetEntity{
+        public Scene(){
+        }
+
         public Scene(HoArchive.MemoryStreamEndian file){
         }
 

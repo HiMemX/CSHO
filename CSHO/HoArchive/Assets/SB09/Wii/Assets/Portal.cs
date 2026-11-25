@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class Portal : Asset.AssetEntity{
+        public Portal(){
+        }
+
         public Portal(HoArchive.MemoryStreamEndian file){
         }
 

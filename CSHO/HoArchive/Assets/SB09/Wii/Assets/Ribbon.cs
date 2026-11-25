@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class Ribbon : Asset.AssetEntity{
+        public Ribbon(){
+        }
+
         public Ribbon(HoArchive.MemoryStreamEndian file){
         }
 

@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class InflatablePlatform : Asset.AssetEntity{
+        public InflatablePlatform(){
+        }
+
         public InflatablePlatform(HoArchive.MemoryStreamEndian file){
         }
 

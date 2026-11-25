@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class TriggerEnt : Asset.AssetEntity{
+        public TriggerEnt(){
+        }
+
         public TriggerEnt(HoArchive.MemoryStreamEndian file){
         }
 

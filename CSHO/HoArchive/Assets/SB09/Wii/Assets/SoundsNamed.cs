@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class SoundsNamed : Asset.AssetEntity{
+        public SoundsNamed(){
+        }
+
         public SoundsNamed(HoArchive.MemoryStreamEndian file){
         }
 

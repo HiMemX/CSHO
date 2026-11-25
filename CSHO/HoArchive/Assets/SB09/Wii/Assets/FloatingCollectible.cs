@@ -6,30 +6,32 @@ using HoArchive;
 namespace SB09WiiAsset{
     public class FloatingCollectible : xBaseAsset{
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew {get; set;}
+        public LinkAsset EventLinksNew {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public ModelInstanceAsset ModelInstance {get; set;}
+        public ModelInstanceAsset ModelInstance {get; set;} = new();
         [TypeConverter(typeof(HoArchive.Point3Converter))]
-        public HoArchive.float3 Position {get; set;}
-        public float CollectDistance {get;set;}
-        public float SB09CollectTime {get;set;}
-        public float SB09CollectHeight {get;set;}
+        public HoArchive.float3 Position {get; set;} = new();
+        public float CollectDistance {get;set;} = 0;
+        public float SB09CollectTime {get;set;} = 0;
+        public float SB09CollectHeight {get;set;} = 0;
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong VFXSpawn {get;set;}
+        public ulong VFXSpawn {get;set;} = 0;
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong VFXCollectSpawn {get;set;}
-        public bool HasBalloon {get;set;}
-        public bool UseGeneric {get;set;}
-        public bool InitiallyHidden {get;set;}
-        public bool RandomInitialRotation {get;set;}
-        public uint MotionType {get;set;}
+        public ulong VFXCollectSpawn {get;set;} = 0;
+        public bool HasBalloon {get;set;} = false;
+        public bool UseGeneric {get;set;} = false;
+        public bool InitiallyHidden {get;set;} = false;
+        public bool RandomInitialRotation {get;set;} = false;
+        public uint MotionType {get;set;}  = 0;
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public uGameName uItemType {get;set;} // Name is different
+        public uGameName uItemType {get;set;} =new();// Name is different
         [TypeConverter(typeof(GameNameConverter))]
-        public GameName gameName {get;set;}
+        public GameName gameName {get;set;} = GameName.SB09;
         public bool isDrivenBy {get;set;} // Different from DWARF
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong DrivenByObject {get;set;}
+        public ulong DrivenByObject {get;set;} = 0;
+
+        public FloatingCollectible() : base(){}
         
         
 

@@ -1,5 +1,7 @@
 namespace SB09WiiAsset{
     public class AnimationSet : Asset.AssetEntity{
+        public AnimationSet(){}
+
         public AnimationSet(HoArchive.MemoryStreamEndian file){
         }
 

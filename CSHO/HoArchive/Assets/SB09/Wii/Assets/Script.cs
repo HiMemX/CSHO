@@ -4,18 +4,19 @@ using System.Linq;
 
 namespace SB09WiiAsset{
     public class Script : xBaseAsset{
-        public Pointer32_ScriptList ScriptList;
+        public Pointer32_ScriptList ScriptList = new();
         public List<ScriptEntry> _ScriptList {get {return ScriptList.scriptEntries;} set {ScriptList.scriptEntries = value;}}
 
-        public float ScaleFactor {get; set;}
-        public uint eventCount {get; set;}
-        public bool Loop {get; set;}
-        public bool RunWhenPaused {get; set;}
-        public bool RunInCinematic {get; set;}
-        public byte pad2 {get;set;}
+        public float ScaleFactor {get; set;} = new();
+        public uint eventCount {get; set;} = new();
+        public bool Loop {get; set;} = new();
+        public bool RunWhenPaused {get; set;} = new();
+        public bool RunInCinematic {get; set;} = new();
+        public byte pad2 {get;set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew {get;set;}
+        public LinkAsset EventLinksNew {get;set;} = new();
 
+        public Script() : base(){}
 
         public Script(HoArchive.MemoryStreamEndian file) : base(file){
             uint count = file.ReadUInt32E();

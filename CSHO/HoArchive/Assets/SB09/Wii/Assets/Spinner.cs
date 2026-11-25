@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class Spinner : Asset.AssetEntity{
+        public Spinner(){
+        }
+
         public Spinner(HoArchive.MemoryStreamEndian file){
         }
 

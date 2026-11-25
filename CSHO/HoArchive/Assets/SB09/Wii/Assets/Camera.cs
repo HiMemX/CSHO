@@ -4,31 +4,35 @@ using HoArchive;
 namespace SB09WiiAsset{
     public class Camera : xBaseAsset{
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public uTargetMode uTargetMode {get; set;}
+        public uTargetMode uTargetMode {get; set;} = new();
         [TypeConverter(typeof(TargetModeConverter))]
-        public TargetMode TargetMode {get; set;}
+        public TargetMode TargetMode {get; set;} = TargetMode.Rotation;
         [TypeConverter(typeof(Point3Converter))]
-        public float3 pos {get; set;}
+        public float3 pos {get; set;} = new();
         [TypeConverter(typeof(Point3Converter))]
-        public float3 at {get; set;}
+        public float3 at {get; set;} = new();
         [TypeConverter(typeof(Point3Converter))]
-        public float3 up {get; set;}
+        public float3 up {get; set;} = new();
         [TypeConverter(typeof(Point3Converter))]
-        public float3 right {get; set;}
+        public float3 right {get; set;} = new();
         [TypeConverter(typeof(Point3Converter))]
-        public float3 orientation {get; set;}
-        public float fov {get; set;}
-        public float trans_time {get; set;}
-        public uint flags {get; set;}
-        public bool dofEnabled {get; set;}
-        public float dofBlur {get; set;}
-        public float dofNearFocusPoint {get; set;}
-        public float dofNearFocusFalloff{get; set;}
-        public float dofFarFocusPoint {get; set;}
-        public float dofFarFocusFalloff{get; set;}
+        public float3 orientation {get; set;} = new();
+        public float fov {get; set;} = 0;
+        public float trans_time {get; set;} = 0;
+        public uint flags {get; set;} = 0;
+        public bool dofEnabled {get; set;} = false;
+        public float dofBlur {get; set;} = 0;
+        public float dofNearFocusPoint {get; set;} = 0;
+        public float dofNearFocusFalloff{get; set;} = 0;
+        public float dofFarFocusPoint {get; set;} = 0;
+        public float dofFarFocusFalloff{get; set;} = 0;
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew {get; set;}
+        public LinkAsset EventLinksNew {get; set;} = new();
 
+        public Camera() : base()
+        {
+            
+        }
 
         public Camera(HoArchive.MemoryStreamEndian file) : base(file){
             uTargetMode = new uTargetMode(file);

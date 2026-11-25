@@ -4,13 +4,15 @@ using HoArchive;
 namespace SB09WiiAsset{
     public class LightKitScene : Asset.AssetEntity{
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong NPC {get; set;}
+        public ulong NPC {get; set;} = 0;
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong Player {get; set;}
+        public ulong Player {get; set;} = 0;
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong Object {get; set;}
+        public ulong Object {get; set;} = 0;
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong Environment {get; set;}
+        public ulong Environment {get; set;} = 0;
+
+        public LightKitScene(){}
 
         public LightKitScene(HoArchive.MemoryStreamEndian file){
             NPC = file.ReadUInt64E();

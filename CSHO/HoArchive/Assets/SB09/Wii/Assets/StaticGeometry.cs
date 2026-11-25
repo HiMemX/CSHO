@@ -3,6 +3,9 @@ using HoArchive;
 
 namespace SB09WiiAsset{
     public class StaticGeometry : GeometryAsset{
+
+        public StaticGeometry() : base(){}
+
         public StaticGeometry(HoArchive.MemoryStreamEndian file) : base(file){}
 
         public override void Update(TOCEntry entry)

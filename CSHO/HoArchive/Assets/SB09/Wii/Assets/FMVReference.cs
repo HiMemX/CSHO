@@ -3,6 +3,9 @@ namespace SB09WiiAsset{
         public FMVReference(HoArchive.MemoryStreamEndian file){
         }
 
+        public FMVReference(){
+        }
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

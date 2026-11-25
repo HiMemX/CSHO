@@ -3,6 +3,10 @@ namespace SB09WiiAsset{
         public ComboAnimBlob(HoArchive.MemoryStreamEndian file){
         }
 
+        public ComboAnimBlob(){
+        }
+
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class Light_Effect_Strobe : Asset.AssetEntity{
+        public Light_Effect_Strobe(){
+        }
+
         public Light_Effect_Strobe(HoArchive.MemoryStreamEndian file){
         }
 

@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class Subtitles : Asset.AssetEntity{
+        public Subtitles(){
+        }
+
         public Subtitles(HoArchive.MemoryStreamEndian file){
         }
 

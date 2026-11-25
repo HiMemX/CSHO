@@ -238,6 +238,11 @@ namespace CSHO{
             return null;
         }
 
+        public bool GetEndian()
+        {
+            return this.Archive.Header.target == "FGUY";
+        }
+
 
     }
 }

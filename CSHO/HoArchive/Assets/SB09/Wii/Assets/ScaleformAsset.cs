@@ -4,17 +4,19 @@ using HoArchive;
 
 namespace SB09WiiAsset{
     public class ScaleformAsset : Asset.AssetEntity{
-        public uint textureListOffset {get; set;}
-        public uint numTextures {get; set;}
-        public uint isFont {get; set;}
-        public uint dataOffset {get; set;} // Data at multiples of 0x40
+        public uint textureListOffset {get; set;} = 0;
+        public uint numTextures {get; set;} = 0;
+        public uint isFont {get; set;} = 0;
+        public uint dataOffset {get; set;} = 0;// Data at multiples of 0x40
         
-        public string name {get; set;} // Not in dwarf (Null terminated)
-        public List<ScaleformTexture> textures {get; set;}
+        public string name {get; set;} = "";// Not in dwarf (Null terminated)
+        public List<ScaleformTexture> textures {get; set;} = new();
         //public List<ulong> textureIDs {get; set;} // Not in dwarf
         //public List<string> textureNames {get; set;} // Not in dwarf
         
-        public List<byte> Scaleform; // Temporary until we make an actual editor (probably never, JPEXs is good enough)
+        public List<byte> Scaleform = new(); // Temporary until we make an actual editor (probably never, JPEXs is good enough)
+
+        public ScaleformAsset(){}
 
         public ScaleformAsset(HoArchive.MemoryStreamEndian file){
             textureListOffset = file.ReadUInt32E();

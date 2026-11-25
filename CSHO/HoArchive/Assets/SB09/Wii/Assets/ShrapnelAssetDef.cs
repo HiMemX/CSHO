@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class ShrapnelAssetDef : Asset.AssetEntity{
+        public ShrapnelAssetDef(){
+        }
+
         public ShrapnelAssetDef(HoArchive.MemoryStreamEndian file){
         }
 

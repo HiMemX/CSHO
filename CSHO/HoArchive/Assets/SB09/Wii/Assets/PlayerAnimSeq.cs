@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class PlayerAnimSeq : Asset.AssetEntity{
+        public PlayerAnimSeq(){
+        }
+
         public PlayerAnimSeq(HoArchive.MemoryStreamEndian file){
         }
 

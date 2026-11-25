@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class SoundFXMultiple : Asset.AssetEntity{
+        public SoundFXMultiple(){
+        }
+
         public SoundFXMultiple(HoArchive.MemoryStreamEndian file){
         }
 

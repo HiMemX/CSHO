@@ -13,5 +13,18 @@ namespace Asset{
             }
             return null;
         }
+
+        public static AssetEntity CreateAsset(HoArchive.wmlTypeID wmlTypeID, string target, string platform)
+        {
+            if(!AvailableAssetsTEMP.available.Contains(wmlTypeID)){return null;}
+            switch (target){
+                case "SB09":
+                    if(platform == "WII"){return SB09WiiAsset.SB09WiiAssetCaster.CreateAsset(wmlTypeID);}
+                    break;
+                default:
+                    return null;
+            }
+            return null;
+        }
     }
 }

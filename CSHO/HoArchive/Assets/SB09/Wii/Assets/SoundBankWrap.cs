@@ -1,7 +1,9 @@
 namespace SB09WiiAsset{
     public class SoundBankWrap : Asset.AssetEntity{
-        public uint length {get; set;}
-        public string str {get; set;}
+        public uint length {get; set;} = new();
+        public string str {get; set;} = "";
+
+        public SoundBankWrap(){}
 
         public SoundBankWrap(HoArchive.MemoryStreamEndian file){
             length = file.ReadUInt32E();

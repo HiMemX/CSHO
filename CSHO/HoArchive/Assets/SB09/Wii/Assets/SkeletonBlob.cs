@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class SkeletonBlob : Asset.AssetEntity{
+        public SkeletonBlob(){
+        }
+
         public SkeletonBlob(HoArchive.MemoryStreamEndian file){
         }
 

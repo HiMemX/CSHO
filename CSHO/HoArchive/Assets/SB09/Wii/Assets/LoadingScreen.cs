@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class LoadingScreen : Asset.AssetEntity{
+        public LoadingScreen(){
+        }
+
         public LoadingScreen(HoArchive.MemoryStreamEndian file){
         }
 

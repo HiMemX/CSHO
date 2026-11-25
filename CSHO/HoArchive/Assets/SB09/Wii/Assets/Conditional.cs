@@ -5,16 +5,16 @@ using System.ComponentModel;
 namespace SB09WiiAsset{
     public class Conditional : xBaseAsset{
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public ConditionDef Condition { get; set; }
-        public uint LogicalOperator { get; set; }
+        public ConditionDef Condition { get; set; } = new();
+        public uint LogicalOperator { get; set; } = 0;
 
-        public Pointer32_MoreConditions MoreConditions;
+        public Pointer32_MoreConditions MoreConditions  = new();
         public List<ConditionDef> _MoreConditions { get { return MoreConditions.MoreConditions; } set { MoreConditions.MoreConditions = value; }}
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew { get; set; }
+        public LinkAsset EventLinksNew { get; set; } = new();
 
-
+        public Conditional() : base(){}
 
         public Conditional(HoArchive.MemoryStreamEndian file) : base(file)
         {

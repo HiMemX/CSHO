@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class PlantTrap : Asset.AssetEntity{
+        public PlantTrap(){
+        }
+
         public PlantTrap(HoArchive.MemoryStreamEndian file){
         }
 

@@ -3,6 +3,9 @@ namespace SB09WiiAsset{
         public CylinderAsset(HoArchive.MemoryStreamEndian file){
         }
 
+        public CylinderAsset(){
+        }
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

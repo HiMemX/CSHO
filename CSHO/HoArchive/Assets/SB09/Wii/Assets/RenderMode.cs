@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class RenderMode : Asset.AssetEntity{
+        public RenderMode(){
+        }
+
         public RenderMode(HoArchive.MemoryStreamEndian file){
         }
 

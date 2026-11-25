@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class TikiScreen : Asset.AssetEntity{
+        public TikiScreen(){
+        }
+
         public TikiScreen(HoArchive.MemoryStreamEndian file){
         }
 

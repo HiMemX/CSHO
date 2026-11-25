@@ -3,11 +3,13 @@ using System.ComponentModel;
 namespace SB09WiiAsset{
     public class Trampoline : xEntAsset{
         
-        public float MinBounce { get; set; }
-        public float MaxBounce { get; set; }
+        public float MinBounce { get; set; } = new();
+        public float MaxBounce { get; set; } = new();
         
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew {get; set;}
+        public LinkAsset EventLinksNew {get; set;} = new();
+
+        public Trampoline() : base(){}
 
         public Trampoline(HoArchive.MemoryStreamEndian file) : base(file)
         {

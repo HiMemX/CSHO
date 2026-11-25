@@ -3,6 +3,9 @@ namespace SB09WiiAsset{
         public FXScreenWarp(HoArchive.MemoryStreamEndian file){
         }
 
+        public FXScreenWarp(){
+        }
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

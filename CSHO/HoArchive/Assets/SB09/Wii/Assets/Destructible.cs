@@ -3,6 +3,9 @@ namespace SB09WiiAsset{
         public Destructible(HoArchive.MemoryStreamEndian file){
         }
 
+        public Destructible(){
+        }
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

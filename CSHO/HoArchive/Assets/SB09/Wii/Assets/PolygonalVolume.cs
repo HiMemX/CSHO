@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class PolygonalVolume : Asset.AssetEntity{
+        public PolygonalVolume(){
+        }
+
         public PolygonalVolume(HoArchive.MemoryStreamEndian file){
         }
 

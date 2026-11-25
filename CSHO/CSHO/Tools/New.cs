@@ -48,6 +48,11 @@ namespace CSHO{
             return "";
         }
 
+        public TOCEntry CreateAsset(wmlTypeID id)
+        {
+            return new TOCEntry(id, Archive.Header.platform, Archive.Header.target, GetEndian());
+        }
+
         public string NewParcelTOC(HoArchive.Parcel parcel){
             parcel.ParcelTOCs.Add(new HoArchive.ParcelTOC());
         

@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class WallNetGroup : Asset.AssetEntity{
+        public WallNetGroup(){
+        }
+
         public WallNetGroup(HoArchive.MemoryStreamEndian file){
         }
 

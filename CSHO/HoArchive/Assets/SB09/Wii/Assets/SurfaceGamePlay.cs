@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class SurfaceGamePlay : Asset.AssetEntity{
+        public SurfaceGamePlay(){
+        }
+
         public SurfaceGamePlay(HoArchive.MemoryStreamEndian file){
         }
 

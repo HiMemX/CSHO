@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class Hammer : Asset.AssetEntity{
+        public Hammer(){
+        }
+
         public Hammer(HoArchive.MemoryStreamEndian file){
         }
 

@@ -4,29 +4,31 @@ using RenderingInternal;
 
 namespace SB09WiiAsset{
     public class GenericShader : ShaderAsset{
-        public Pointer32_Wii_ShaderStateOp shaderOps;
+        public Pointer32_Wii_ShaderStateOp shaderOps = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public Wii_ShaderStateOp _shaderOps {get {return shaderOps.shaderStateOp;} set{shaderOps.shaderStateOp = value;}}
 
-        public Pointer32_Wii_MaterialStateOp materialOps;
+        public Pointer32_Wii_MaterialStateOp materialOps = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public Wii_MaterialStateOp _materialOps {get {return materialOps.materialStateOp;} set{materialOps.materialStateOp = value;}}
 
-        public Pointer32_Wii_GeometryStateOp geomOps;
+        public Pointer32_Wii_GeometryStateOp geomOps = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public Wii_GeometryStateOp _geomOps {get {return geomOps.geometryStateOp;} set{geomOps.geometryStateOp = value;}}
 
-        public Pointer32_Wii_MaterialStateOp rendOps;
+        public Pointer32_Wii_MaterialStateOp rendOps = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public Wii_MaterialStateOp _rendOps {get {return rendOps.materialStateOp;} set{rendOps.materialStateOp = value;}}
 
-        public Pointer32_MaterialParamFormatTableAsset shaderParamFormats {get;set;}
+        public Pointer32_MaterialParamFormatTableAsset shaderParamFormats {get;set;} = new();
         
-        public int featureFlags {get; set;}
+        public int featureFlags {get; set;} = 0;
         
         [TypeConverter(typeof(UInt32BinaryStringConverter))]
-        public uint flags { get; set; }
+        public uint flags { get; set; } = 0;
 
+
+        public GenericShader() : base(){}
 
         public GenericShader(HoArchive.MemoryStreamEndian file) : base(file){
             shaderOps = new Pointer32_Wii_ShaderStateOp(file);

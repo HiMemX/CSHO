@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class NPCGenericPool : Asset.AssetEntity{
+        public NPCGenericPool(){
+        }
+
         public NPCGenericPool(HoArchive.MemoryStreamEndian file){
         }
 

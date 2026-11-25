@@ -2,6 +2,8 @@ namespace SB09WiiAsset{
     public class CurveCamera : Asset.AssetEntity{
         public CurveCamera(HoArchive.MemoryStreamEndian file){
         }
+        public CurveCamera(){
+        }
 
         public override void Update(HoArchive.TOCEntry entry){
         }

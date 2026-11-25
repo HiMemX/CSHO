@@ -3,6 +3,9 @@ namespace SB09WiiAsset{
         public Dispatcher(HoArchive.MemoryStreamEndian file){
         }
 
+        public Dispatcher(){
+        }
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

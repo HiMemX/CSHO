@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class ProjectileAsset : Asset.AssetEntity{
+        public ProjectileAsset(){
+        }
+
         public ProjectileAsset(HoArchive.MemoryStreamEndian file){
         }
 

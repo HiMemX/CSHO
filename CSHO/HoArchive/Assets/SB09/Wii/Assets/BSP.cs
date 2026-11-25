@@ -2,13 +2,17 @@ using System.ComponentModel;
 
 namespace SB09WiiAsset{
     public class BSP : xEntAsset{
-        public bool AlwaysVisible {get; set;}
-        public bool AlwaysCollide {get; set;}
+        public bool AlwaysVisible {get; set;} = true;
+        public bool AlwaysCollide {get; set;} = true;
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong ReferenceGroup {get; set;}
+        public ulong ReferenceGroup {get; set;} = 0;
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew {get; set;}
+        public LinkAsset EventLinksNew {get; set;} = new();
 
+        public BSP() : base()
+        {
+            
+        }
 
         public BSP(HoArchive.MemoryStreamEndian file) : base(file){
             AlwaysVisible = file.ReadBool();

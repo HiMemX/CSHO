@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class TemplateInst : Asset.AssetEntity{
+        public TemplateInst(){
+        }
+
         public TemplateInst(HoArchive.MemoryStreamEndian file){
         }
 

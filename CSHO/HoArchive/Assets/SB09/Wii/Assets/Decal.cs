@@ -3,6 +3,9 @@ namespace SB09WiiAsset{
         public Decal(HoArchive.MemoryStreamEndian file){
         }
 
+        public Decal(){
+        }
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

@@ -10,7 +10,7 @@ namespace SB09WiiAsset{
         public float3 pos {get;set;} = new float3(0,0,0);
         
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public ModelInstanceAsset modelInstance {get;set;}// = new ModelInstanceAsset();
+        public ModelInstanceAsset modelInstance {get;set;} = new ModelInstanceAsset();
         
         [TypeConverter(typeof(Point3Converter))]
         public float3 Scale {get;set;} = new float3(0,0,0);
@@ -24,7 +24,9 @@ namespace SB09WiiAsset{
         public float yawRange {get;set;} = 0;
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew;
+        public LinkAsset EventLinksNew = new();
+
+        public PuckReflector() : base(){}
 
         public PuckReflector(HoArchive.MemoryStreamEndian file) : base(file)
         {

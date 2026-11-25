@@ -3,6 +3,9 @@ namespace SB09WiiAsset{
         public ElectricArc(HoArchive.MemoryStreamEndian file){
         }
 
+        public ElectricArc(){
+        }
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

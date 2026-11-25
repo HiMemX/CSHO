@@ -3,6 +3,9 @@ namespace SB09WiiAsset{
         public Checkpoint(HoArchive.MemoryStreamEndian file){
         }
 
+        public Checkpoint(){
+        }
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

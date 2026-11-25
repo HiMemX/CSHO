@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class NPCTemplate : Asset.AssetEntity{
+        public NPCTemplate(){
+        }
+
         public NPCTemplate(HoArchive.MemoryStreamEndian file){
         }
 

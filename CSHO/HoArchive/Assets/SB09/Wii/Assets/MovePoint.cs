@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class MovePoint : Asset.AssetEntity{
+        public MovePoint(){
+        }
+
         public MovePoint(HoArchive.MemoryStreamEndian file){
         }
 

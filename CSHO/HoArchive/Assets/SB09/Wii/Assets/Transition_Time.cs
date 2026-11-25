@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class Transition_Time : Asset.AssetEntity{
+        public Transition_Time(){
+        }
+
         public Transition_Time(HoArchive.MemoryStreamEndian file){
         }
 

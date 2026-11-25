@@ -3,18 +3,20 @@ using System.ComponentModel;
 namespace SB09WiiAsset{
     public class SimpleObject : xEntAsset{
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong Destructible {get; set;}
-        public float AnimationSpeed {get; set;}
-        public uint InitialState {get; set;}
-        public byte Collision {get; set;}
-        public bool CameraCollisionOff {get; set;}
-        public bool GoTransparent {get; set;}
-        public byte SimpleFlags {get; set;}
-        public bool ForceUpdateDistance {get; set;} // bool
-        public float ForceUpdateDistanceValue {get; set;}
-        public byte orientRef {get; set;}
+        public ulong Destructible {get; set;} = new();
+        public float AnimationSpeed {get; set;} = new();
+        public uint InitialState {get; set;} = new();
+        public byte Collision {get; set;} = new();
+        public bool CameraCollisionOff {get; set;} = new();
+        public bool GoTransparent {get; set;} = new();
+        public byte SimpleFlags {get; set;} = new();
+        public bool ForceUpdateDistance {get; set;}  = new();// bool
+        public float ForceUpdateDistanceValue {get; set;} = new();
+        public byte orientRef {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew {get; set;}
+        public LinkAsset EventLinksNew {get; set;} = new();
+
+        public SimpleObject() : base(){}
 
         public SimpleObject(HoArchive.MemoryStreamEndian file) : base(file){
             Destructible = file.ReadUInt64E();

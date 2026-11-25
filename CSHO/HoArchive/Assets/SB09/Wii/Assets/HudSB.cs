@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class HudSB : Asset.AssetEntity{
+        public HudSB(){
+        }
+
         public HudSB(HoArchive.MemoryStreamEndian file){
         }
 

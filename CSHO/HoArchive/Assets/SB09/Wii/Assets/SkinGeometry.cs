@@ -4,28 +4,30 @@ using System.Linq;
 
 namespace SB09WiiAsset{
     public class SkinGeometry : GeometryAsset{
-        public byte skinFlags {get;set;}
-        public byte jointCount {get;set;}
-        public byte influenceSectionCount {get;set;}
-        public byte staticStreamCount { get; set; }
+        public byte skinFlags {get;set;} = new();
+        public byte jointCount {get;set;} = new();
+        public byte influenceSectionCount {get;set;} = new();
+        public byte staticStreamCount { get; set; } = new();
 
-        public Pointer32_EvaluatorSkinSections influenceSections;
+        public Pointer32_EvaluatorSkinSections influenceSections = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public List<EvaluatorSkinSection> _influenceSections { get { return influenceSections.evaluatorSkinSections; } set { influenceSections.evaluatorSkinSections = value; } }
-        public Pointer32_b staticStreamMap { get; set; }
-        public Pointer32_b skinBufferMap { get; set; }
-        public Pointer32_b animBoundBoneIndexData { get; set; }
-        public Pointer32_float4s animBoundSphereData { get; set; }
-        public byte[] dynStreamMap {get; set;} // 4 bytes
-        public byte dynConfig {get;set;}
-        public byte animBoundDataCount {get;set;}
-        public ushort wiiPaletteCount {get;set;}
+        public Pointer32_b staticStreamMap { get; set; } = new();
+        public Pointer32_b skinBufferMap { get; set; } = new();
+        public Pointer32_b animBoundBoneIndexData { get; set; } = new();
+        public Pointer32_float4s animBoundSphereData { get; set; } = new();
+        public byte[] dynStreamMap {get; set;} = new byte[4];// 4 bytes
+        public byte dynConfig {get;set;} = new();
+        public byte animBoundDataCount {get;set;} = new();
+        public ushort wiiPaletteCount {get;set;} = new();
         //public Pointer32_WiiPaletteList wiiPaletteList;
-        public uint wiiPaletteList {get;set;}
-        public uint morphCount {get;set;}
-        public uint morphList {get;set;}
+        public uint wiiPaletteList {get;set;} = new();
+        public uint morphCount {get;set;} = new();
+        public uint morphList {get;set;} = new();
 
-        public List<byte> restData {get;set;}
+        public List<byte> restData {get;set;} = new();
+
+        public SkinGeometry() : base(){}
 
         public SkinGeometry(HoArchive.MemoryStreamEndian file) : base(file){
             

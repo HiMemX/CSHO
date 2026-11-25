@@ -5,15 +5,17 @@ using System.Collections.Generic;
 namespace SB09WiiAsset{
     public class Material : Asset.AssetEntity{
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong effectID {get; set;}
+        public ulong effectID {get; set;} = 0;
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong renderModeID {get; set;}
-        public float depthBias {get; set;}
-        public byte materialParamCount {get; set;}
-        public byte pad {get; set;}
-        public ushort materialFlags {get; set;}
+        public ulong renderModeID {get; set;} = 0;
+        public float depthBias {get; set;} = 0;
+        public byte materialParamCount {get; set;} = 0;
+        public byte pad {get; set;} = 0;
+        public ushort materialFlags {get; set;} = 0;
         
-        public List<MaterialParam> materialParams {get; set;}
+        public List<MaterialParam> materialParams {get; set;} = new();
+
+        public Material(){}
 
         public Material(HoArchive.MemoryStreamEndian file){
             effectID = file.ReadUInt64E();

@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class ImmediateModel : Asset.AssetEntity{
+        public ImmediateModel(){
+        }
+
         public ImmediateModel(HoArchive.MemoryStreamEndian file){
         }
 

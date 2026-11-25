@@ -3,6 +3,9 @@ namespace SB09WiiAsset{
         public FXParticleSystem(HoArchive.MemoryStreamEndian file){
         }
 
+        public FXParticleSystem(){
+        }
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

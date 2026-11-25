@@ -3,12 +3,12 @@ using System.ComponentModel;
 namespace SB09WiiAsset{
     public class Texture : Asset.AssetEntity{
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong imageBlobID {get; set;}
-        public byte tileX {get; set;}
-        public byte tileY {get; set;}
-        public byte tileZ {get; set;}
-        public byte pad {get; set;}
-        public float alphaScale {get; set;}
+        public ulong imageBlobID {get; set;} = new();
+        public byte tileX {get; set;} = new();
+        public byte tileY {get; set;} = new();
+        public byte tileZ {get; set;} = new();
+        public byte pad {get; set;} = new();
+        public float alphaScale {get; set;} = new();
 
         public Texture(){}
 

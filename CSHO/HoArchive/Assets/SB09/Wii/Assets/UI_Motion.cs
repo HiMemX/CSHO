@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class UI_Motion : Asset.AssetEntity{
+        public UI_Motion(){
+        }
+
         public UI_Motion(HoArchive.MemoryStreamEndian file){
         }
 

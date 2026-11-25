@@ -4,12 +4,14 @@ using HoArchive;
 namespace SB09WiiAsset{
     public class LightKit : Asset.AssetEntity{
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong lookupTex {get; set;}
+        public ulong lookupTex {get; set;} = 0;
         [TypeConverter(typeof(FloatColorRGBConverter))]
-        public FloatColorRGB ambientColor {get; set;}
+        public FloatColorRGB ambientColor {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public DirLight_Array5 dir { get; set; }
-        public uint pad {get; set;}
+        public DirLight_Array5 dir { get; set; } = new();
+        public uint pad {get; set;} = 0;
+
+        public LightKit(){}
 
         public LightKit(HoArchive.MemoryStreamEndian file){
             lookupTex = file.ReadUInt64E();

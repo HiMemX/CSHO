@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class UIDModelReference : Asset.AssetEntity{
+        public UIDModelReference(){
+        }
+
         public UIDModelReference(HoArchive.MemoryStreamEndian file){
         }
 

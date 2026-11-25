@@ -3,6 +3,9 @@ namespace SB09WiiAsset{
         public CollectibleSpawner(HoArchive.MemoryStreamEndian file){
         }
 
+        public CollectibleSpawner(){
+        }
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

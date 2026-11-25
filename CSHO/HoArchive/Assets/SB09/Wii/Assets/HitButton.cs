@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class HitButton : Asset.AssetEntity{
+        public HitButton(){
+        }
+
         public HitButton(HoArchive.MemoryStreamEndian file){
         }
 

@@ -1,5 +1,7 @@
 namespace SB09WiiAsset{
     public class AnimList : Asset.AssetEntity{
+        
+        public AnimList(){}
         public AnimList(HoArchive.MemoryStreamEndian file){
         }
 

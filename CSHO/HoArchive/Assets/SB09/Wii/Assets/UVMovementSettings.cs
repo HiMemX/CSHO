@@ -3,16 +3,18 @@ using System.ComponentModel;
 namespace SB09WiiAsset{
 
     public class UVMovementSettings : Asset.AssetEntity{
-        public float InitialDegree {get; set;}
-        public float DegreePerSec {get; set;}
+        public float InitialDegree {get; set;} = new();
+        public float DegreePerSec {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public UVSet InitialScale {get; set;}
+        public UVSet InitialScale {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public UVSet ScalePerSec {get; set;}
+        public UVSet ScalePerSec {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public UVSet InitialTranslate {get; set;}
+        public UVSet InitialTranslate {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public UVSet TranslatePerSec {get; set;}
+        public UVSet TranslatePerSec {get; set;} = new();
+
+        public UVMovementSettings(){}
 
         public UVMovementSettings(HoArchive.MemoryStreamEndian file){
             InitialDegree = file.ReadFloat32E();

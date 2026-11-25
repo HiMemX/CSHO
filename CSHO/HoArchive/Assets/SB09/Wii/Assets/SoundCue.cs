@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class SoundCue : Asset.AssetEntity{
+        public SoundCue(){
+        }
+
         public SoundCue(HoArchive.MemoryStreamEndian file){
         }
 

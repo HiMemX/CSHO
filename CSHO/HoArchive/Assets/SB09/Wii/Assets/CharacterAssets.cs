@@ -3,6 +3,9 @@ namespace SB09WiiAsset{
         public CharacterAssets(HoArchive.MemoryStreamEndian file){
         }
 
+        public CharacterAssets(){
+        }
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

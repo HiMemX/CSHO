@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class RubberBand : Asset.AssetEntity{
+        public RubberBand(){
+        }
+
         public RubberBand(HoArchive.MemoryStreamEndian file){
         }
 

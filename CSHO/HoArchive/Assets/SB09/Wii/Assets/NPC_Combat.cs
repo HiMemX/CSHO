@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class NPC_Combat : Asset.AssetEntity{
+        public NPC_Combat(){
+        }
+
         public NPC_Combat(HoArchive.MemoryStreamEndian file){
         }
 

@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class UI_Flash_On_Screen_Text : Asset.AssetEntity{
+        public UI_Flash_On_Screen_Text(){
+        }
+
         public UI_Flash_On_Screen_Text(HoArchive.MemoryStreamEndian file){
         }
 

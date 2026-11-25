@@ -2,6 +2,8 @@ namespace SB09WiiAsset{
     public class CameraD : Asset.AssetEntity{
         public CameraD(HoArchive.MemoryStreamEndian file){
         }
+        public CameraD(){
+        }
 
         public override void Update(HoArchive.TOCEntry entry){
         }

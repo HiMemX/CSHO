@@ -3,12 +3,14 @@ using System.ComponentModel;
 namespace SB09WiiAsset{
     public class SoundFX : xBaseAsset{
         [TypeConverter(typeof(HoArchive.Point3Converter))]
-        public HoArchive.float3 pos {get; set;} // 0x10
+        public HoArchive.float3 pos {get; set;}  = new();// 0x10
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong attach {get; set;} // 0x20
+        public ulong attach {get; set;}  = new();// 0x20
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public SoundBankSource source {get; set;}
-        public bool needUpdate {get; set;}
+        public SoundBankSource source {get; set;} = new();
+        public bool needUpdate {get; set;} = new();
+
+        public SoundFX() : base(){}
 
         public SoundFX(HoArchive.MemoryStreamEndian file) : base(file){
             pos = new HoArchive.float3(file);

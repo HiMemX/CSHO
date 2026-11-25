@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class ImmediateGeometry : Asset.AssetEntity{
+        public ImmediateGeometry(){
+        }
+
         public ImmediateGeometry(HoArchive.MemoryStreamEndian file){
         }
 

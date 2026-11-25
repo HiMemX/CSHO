@@ -4,16 +4,18 @@ using HoArchive;
 
 namespace SB09WiiAsset{
     public class Group : xBaseAsset{
-        public ushort itemCount { get; set; }
-        public short maxDynamicSize { get; set; }
-        public ushort flags { get; set; }
+        public ushort itemCount { get; set; } = 0;
+        public short maxDynamicSize { get; set; }= 0;
+        public ushort flags { get; set; }= 0;
         // Pad 2 bytes
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew { get; set; }
+        public LinkAsset EventLinksNew { get; set; } = new();
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong firstItemMarker { get; set; }
+        public ulong firstItemMarker { get; set; } = 0;
 
-        public AssetIDList uids { get; set; }
+        public AssetIDList uids { get; set; } = new();
+
+        public Group() : base(){}
 
         public Group(HoArchive.MemoryStreamEndian file) : base(file)
         {

@@ -5,21 +5,23 @@ using System.ComponentModel;
 namespace SB09WiiAsset{
     public class Effect : Asset.AssetEntity{
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public MaterialParamFormatTableAsset_Array3 paramFormats {get; set; } // Not a usual array because of fixed size, this makes editing them easier
-        public byte techCount; // As in Technique
-        public byte lodCount;
-        public ushort featureCount;
-        public ushort passCount;
-        public ushort shaderCount;
-        public ushort effectFlags {get; set;}
+        public MaterialParamFormatTableAsset_Array3 paramFormats {get; set; } = new(); // Not a usual array because of fixed size, this makes editing them easier
+        public byte techCount = 0; // As in Technique
+        public byte lodCount = 0;
+        public ushort featureCount = 0;
+        public ushort passCount = 0;
+        public ushort shaderCount = 0;
+        public ushort effectFlags {get; set;} = 0;
         // 6 bytes padding
 
         // Lists not in DWARF
-        public List<Shader> shaders {get; set;}
-        public List<Technique> techniques {get; set;}
-        public List<Feature> features {get; set;}
-        public List<LOD> lods {get; set;}
-        public List<Pass> passes {get; set;}
+        public List<Shader> shaders {get; set;} = new();
+        public List<Technique> techniques {get; set;} = new();
+        public List<Feature> features {get; set;} = new();
+        public List<LOD> lods {get; set;} = new();
+        public List<Pass> passes {get; set;} = new();
+
+        public Effect(){}
 
         public Effect(HoArchive.MemoryStreamEndian file){
             paramFormats = new MaterialParamFormatTableAsset_Array3(new List<MaterialParamFormatTableAsset> {new(file), new(file), new(file)});

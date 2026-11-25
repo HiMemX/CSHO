@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class NPC_Perception : Asset.AssetEntity{
+        public NPC_Perception(){
+        }
+
         public NPC_Perception(HoArchive.MemoryStreamEndian file){
         }
 

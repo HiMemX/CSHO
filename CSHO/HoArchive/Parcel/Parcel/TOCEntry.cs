@@ -7,32 +7,42 @@ using System.IO;
 namespace HoArchive{
     public class TOCEntry{
         [ReadOnly(true)]
-        public uint elementSize {get; set;}
+        public uint elementSize {get; set;} = 0;
         [ReadOnly(true)]
-        public uint elementOffset {get; set;}
+        public uint elementOffset {get; set;} = 0;
         [ReadOnly(true)]
-        public uint blobSize {get; set;}
-        public uint blobAlign {get; set;}
+        public uint blobSize {get; set;} = 0;
+        public uint blobAlign {get; set;} = 4;
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong uidSelf {get; set;}
+        public ulong uidSelf {get; set;} = 0;
         [ReadOnly(true)]
         [TypeConverter(typeof(wmlTypeIDConverter))]
-        public wmlTypeID wmlTypeID {get; set;}
-        public ushort subType {get; set;}
-        public ushort blobFlags {get; set;}
+        public wmlTypeID wmlTypeID {get; set;} = wmlTypeID.BSP;
+        public ushort subType {get; set;} = 0;
+        public ushort blobFlags {get; set;} = 1;
 
         public Asset.AssetEntity entity;
 
-        public List<byte> data;
+        public List<byte> data = new();
 
         public bool delete = false;
 
-        public string platform;
-        public string target;
-        public bool endianness;
+        public string platform = "Wii";
+        public string target = "SB09";
+        public bool endianness = false;
 
         // We're gonna remove this now
         //public List<Action<TOCEntry>> OnUpdate = new(); // Event like, get called when update is performed.
+
+        public TOCEntry(wmlTypeID type, string platform, string target, bool endianness)
+        {
+            this.wmlTypeID = type;
+            this.platform = platform;
+            this.target = target;
+            this.endianness = endianness;
+
+            CreateEntity();
+        }
 
         public TOCEntry(ulong uidSelf_in, wmlTypeID wmlTypeID_in, uint blobAlign_in = 0x04, ushort subType_in = 0, ushort blobFlags_in = 1, List<byte> data_in = null, Asset.AssetEntity entity_in = null){
             if(data_in == null && entity == null){throw new Exception();}
@@ -99,7 +109,11 @@ namespace HoArchive{
         }
 
         public void CreateEntity(MemoryStreamEndian stream){
-            if(Asset.AvailableAssetsTEMP.available.Contains(wmlTypeID)){entity = Asset.AssetCaster.ReadAsset(stream, wmlTypeID, target, platform);}
+            if(Asset.AvailableAssetsTEMP.available.Contains(wmlTypeID)){
+                if (data.Count != 0) entity = Asset.AssetCaster.ReadAsset(stream, wmlTypeID, target, platform);
+                else entity = Asset.AssetCaster.CreateAsset(wmlTypeID, target, platform);
+                
+            }
         }
 
 

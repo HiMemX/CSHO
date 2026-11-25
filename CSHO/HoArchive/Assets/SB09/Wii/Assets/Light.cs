@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class Light : Asset.AssetEntity{
+        public Light(){
+        }
+
         public Light(HoArchive.MemoryStreamEndian file){
         }
 

@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class Light_Effect_Flicker : Asset.AssetEntity{
+        public Light_Effect_Flicker(){
+        }
+
         public Light_Effect_Flicker(HoArchive.MemoryStreamEndian file){
         }
 

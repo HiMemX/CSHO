@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class GradientCurve : Asset.AssetEntity{
+        public GradientCurve(){
+        }
+
         public GradientCurve(HoArchive.MemoryStreamEndian file){
         }
 

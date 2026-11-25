@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class ShaderCodeBlob : Asset.AssetEntity{
+        public ShaderCodeBlob(){
+        }
+
         public ShaderCodeBlob(HoArchive.MemoryStreamEndian file){
         }
 

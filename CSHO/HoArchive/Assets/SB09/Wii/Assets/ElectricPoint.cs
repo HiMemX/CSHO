@@ -3,6 +3,9 @@ namespace SB09WiiAsset{
         public ElectricPoint(HoArchive.MemoryStreamEndian file){
         }
 
+        public ElectricPoint(){
+        }
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

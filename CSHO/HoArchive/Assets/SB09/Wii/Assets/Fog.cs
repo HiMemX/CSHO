@@ -4,17 +4,19 @@ namespace SB09WiiAsset{
     public class Fog : xBaseAsset{
         //[TypeConverter(typeof(HoArchive.RGBA8888Converter))]
         [TypeConverter(typeof(HoArchive.RGBA8888Converter))]
-        public HoArchive.RGBA8888 color {get; set;}
-        public float start {get; set;}
-        public float end {get; set;}
+        public HoArchive.RGBA8888 color {get; set;} = new();
+        public float start {get; set;} = 0;
+        public float end {get; set;} = 100;
         [TypeConverter(typeof(SB09WiiAsset.FogInterpolationModeConverter))]
-        public SB09WiiAsset.FogInterpolationMode mode {get; set;}
-        public float heightStart {get; set;}
-        public float heightEnd {get; set;}
+        public SB09WiiAsset.FogInterpolationMode mode {get; set;} = FogInterpolationMode.FOGMODE_Linear;
+        public float heightStart {get; set;} = 0;
+        public float heightEnd {get; set;} = 0;
         [TypeConverter(typeof(SB09WiiAsset.FogInterpolationModeConverter))]
-        public SB09WiiAsset.FogInterpolationMode heightMode {get; set;}
+        public SB09WiiAsset.FogInterpolationMode heightMode {get; set;} = FogInterpolationMode.FOGMODE_None;
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew {get; set;}
+        public LinkAsset EventLinksNew {get; set;} = new();
+
+        public Fog() : base(){}
 
         public Fog(HoArchive.MemoryStreamEndian file) : base(file){
             color = new HoArchive.RGBA8888(file);

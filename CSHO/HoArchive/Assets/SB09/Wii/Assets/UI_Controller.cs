@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class UI_Controller : Asset.AssetEntity{
+        public UI_Controller(){
+        }
+
         public UI_Controller(HoArchive.MemoryStreamEndian file){
         }
 

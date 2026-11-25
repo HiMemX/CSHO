@@ -2,14 +2,16 @@ using System.ComponentModel;
 
 namespace SB09WiiAsset{
     public class Timer : xBaseAsset{
-        public float Value {get; set;}
-        public float Randomness {get; set;}
-        public bool runsInPause {get; set;}
-        public byte pad1 {get; set;}
-        public byte pad2 {get; set;}
-        public byte pad3 {get; set;}
+        public float Value {get; set;} = new();
+        public float Randomness {get; set;} = new();
+        public bool runsInPause {get; set;} = new();
+        public byte pad1 {get; set;} = new();
+        public byte pad2 {get; set;} = new();
+        public byte pad3 {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew {get; set;}
+        public LinkAsset EventLinksNew {get; set;} = new();
+
+        public Timer() : base(){}
 
 
         public Timer(HoArchive.MemoryStreamEndian file) : base(file){

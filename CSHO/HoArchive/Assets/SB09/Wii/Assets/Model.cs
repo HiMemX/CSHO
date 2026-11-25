@@ -7,49 +7,51 @@ using HoArchive;
 
 namespace SB09WiiAsset{
     public class Model : Asset.AssetEntity{ // TODO: Implement shit
-        public ushort geomCount {get; set;}
-        public ushort rendCount {get; set;} // Is higher than geomCount sometimes! (SBB1 for example) // Future Mem here, next time be even less specific please!
-        public ushort childTransformCount {get; set;}
-        public ushort refModelInstanceCount {get; set;}
-        public ushort modelPartCount {get; set;}
-        public byte segmentedModel {get; set;}
-        public bool shadowRotate {get; set;}
-        public ushort lightMask {get; set;}
-        public byte sectorPointCount {get; set;}
-        public byte sectorSpotCount {get; set;}
-        public uint instanceParamCount {get; set;}
-        public uint shadowPriority {get; set;}
-        public uint shadowColor {get; set;}
-        public float shadowMaxDepth {get; set;}
-        public float shadowStartDepth {get; set;}
-        public float shadowBlurDepth {get; set;}
-        public ushort shadowMinBlur {get; set;}
-        public ushort shadowMaxBlur {get; set;}
+        public ushort geomCount {get; set;} = 0;
+        public ushort rendCount {get; set;}  = 0;// Is higher than geomCount sometimes! (SBB1 for example) // Future Mem here, next time be even less specific please!
+        public ushort childTransformCount {get; set;} = 0;
+        public ushort refModelInstanceCount {get; set;} = 0;
+        public ushort modelPartCount {get; set;} = 0;
+        public byte segmentedModel {get; set;} = 0;
+        public bool shadowRotate {get; set;} = false;
+        public ushort lightMask {get; set;} = 0;
+        public byte sectorPointCount {get; set;} = 0;
+        public byte sectorSpotCount {get; set;} = 0;
+        public uint instanceParamCount {get; set;} = 0;
+        public uint shadowPriority {get; set;} = 0;
+        public uint shadowColor {get; set;} = 0;
+        public float shadowMaxDepth {get; set;} = 0;
+        public float shadowStartDepth {get; set;} = 0;
+        public float shadowBlurDepth {get; set;} = 0;
+        public ushort shadowMinBlur {get; set;} = 0;
+        public ushort shadowMaxBlur {get; set;} = 0;
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong skeletonID {get; set;}
+        public ulong skeletonID {get; set;} = 0;
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong collmeshID {get; set;}
+        public ulong collmeshID {get; set;} = 0;
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong shadowTextureID {get; set;}
-        public float shadowTextureLength {get; set;}
-        public float shadowTextureWidth {get; set;}
-        public float shadowCalculatedLength {get; set;}
-        public float shadowCalculatedWidth {get; set;}
-        public float shadowTextureOffsetX {get; set;}
-        public float shadowTextureOffsetZ {get; set;}
-        public List<Matrix4x3> transformationMatrices {get; set;} // Not in dwarf
-        public List<ulong> geometryIDs {get; set;} // Not in dwarf
-        public List<ulong> refModelIDs {get; set;} // Not in dwarf
-        public List<instanceParamHandle> instanceParameterHandles {get; set;} // Not in dwarf
-        public List<ulong> unknown0 {get; set;} // length: instanceParamCount
-        public List<ushort> unknown1 {get; set;} // length: rendCount // NOTE RendCount is accuracte! GeomCount as it says in the image is wrong
-        public List<ushort> matrixStack {get; set;} // length: childTransformCount
-        public List<ushort> stackIndicesRend {get; set;} // length: rendCount (Idk how...)
-        public List<ushort> stackIndicesRefModel {get; set;} // length: refModelCount
-        public List<ushort> unknown3 {get; set;} // length: refModelCount
+        public ulong shadowTextureID {get; set;} = 0;
+        public float shadowTextureLength {get; set;} = 0;
+        public float shadowTextureWidth {get; set;} = 0;
+        public float shadowCalculatedLength {get; set;} = 0;
+        public float shadowCalculatedWidth {get; set;} = 0;
+        public float shadowTextureOffsetX {get; set;} = 0;
+        public float shadowTextureOffsetZ {get; set;} = 0;
+        public List<Matrix4x3> transformationMatrices {get; set;} = new();// Not in dwarf
+        public List<ulong> geometryIDs {get; set;} = new();// Not in dwarf
+        public List<ulong> refModelIDs {get; set;} = new();// Not in dwarf
+        public List<instanceParamHandle> instanceParameterHandles {get; set;} = new();// Not in dwarf
+        public List<ulong> unknown0 {get; set;} = new(); // length: instanceParamCount
+        public List<ushort> unknown1 {get; set;} = new(); // length: rendCount // NOTE RendCount is accuracte! GeomCount as it says in the image is wrong
+        public List<ushort> matrixStack {get; set;} = new(); // length: childTransformCount
+        public List<ushort> stackIndicesRend {get; set;} = new();// length: rendCount (Idk how...)
+        public List<ushort> stackIndicesRefModel {get; set;} = new(); // length: refModelCount
+        public List<ushort> unknown3 {get; set;} = new();// length: refModelCount
         // 8 bytes with rendCount for some reason
-        public List<byte> unknown4 {get; set;} // Use as general end of file buffer for now //length: refModelCount
+        public List<byte> unknown4 {get; set;} = new(); // Use as general end of file buffer for now //length: refModelCount
 
+
+        public Model(){}
 
         public Model(HoArchive.MemoryStreamEndian file){
             geomCount = file.ReadUInt16E();

@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class SoundWiimoteSpeakerList : Asset.AssetEntity{
+        public SoundWiimoteSpeakerList(){
+        }
+
         public SoundWiimoteSpeakerList(HoArchive.MemoryStreamEndian file){
         }
 

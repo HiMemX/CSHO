@@ -2,9 +2,11 @@ using System.ComponentModel;
 
 namespace SB09WiiAsset{
     public class Counter : xBaseAsset{
-        public short Value {get; set;}
+        public short Value {get; set;} = 0;
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew {get; set;}
+        public LinkAsset EventLinksNew {get; set;} = new();
+
+        public Counter() : base(){}
 
         public Counter(HoArchive.MemoryStreamEndian file) : base(file){
             Value = file.ReadInt16E();

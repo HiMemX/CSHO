@@ -3,6 +3,9 @@ namespace SB09WiiAsset{
         public Fountain(HoArchive.MemoryStreamEndian file){
         }
 
+        public Fountain(){
+        }
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

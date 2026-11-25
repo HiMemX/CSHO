@@ -6,23 +6,25 @@ using HoArchive;
 namespace SB09WiiAsset{
     public class Platform : xEntAsset{
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew {get; set;}
+        public LinkAsset EventLinksNew {get; set;} = new();
 
         // Different from Dwarf because of unions
         [TypeConverter(typeof(enPlatformTypeConverter))]
-        public enPlatformType type {get;set;}
+        public enPlatformType type {get;set;} = enPlatformType.MECHANISM;
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public PlatformType platformType {get;set;}
+        public PlatformType platformType {get;set;} = new();
         
-        public bool CameraCollisionOff {get;set;}
-        public bool GoTransparent {get;set;}
-        public bool BIPLANABLE {get;set;}
-        public bool SBCostumeChange {get;set;}
-        public bool ForceUpdateDistance {get;set;}
-        public float ForceUpdateDistanceValue {get;set;}
+        public bool CameraCollisionOff {get;set;} = false;
+        public bool GoTransparent {get;set;} = false;
+        public bool BIPLANABLE {get;set;} = false;
+        public bool SBCostumeChange {get;set;} = false;
+        public bool ForceUpdateDistance {get;set;} = false;
+        public float ForceUpdateDistanceValue {get;set;} = 0;
 
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong Destructible {get;set;}
+        public ulong Destructible {get;set;} = 0;
+
+        public Platform() : base(){}
 
         public Platform(HoArchive.MemoryStreamEndian file) : base(file){
             EventLinksNew = new LinkAsset(file);

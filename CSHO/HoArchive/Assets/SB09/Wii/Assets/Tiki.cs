@@ -4,35 +4,37 @@ using System.Numerics;
 namespace SB09WiiAsset{
     public class Tiki : xBaseAsset{
         [TypeConverter(typeof(HoArchive.Point3Converter))]
-        public HoArchive.float3 Orientation {get; set;}
+        public HoArchive.float3 Orientation {get; set;} = new();
         [TypeConverter(typeof(HoArchive.Point3Converter))]
-        public HoArchive.float3 Pos {get; set;}
+        public HoArchive.float3 Pos {get; set;} = new();
         [TypeConverter(typeof(HoArchive.Point3Converter))]
-        public HoArchive.float3 Scale {get; set;}
+        public HoArchive.float3 Scale {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public ModelInstanceAsset modelInstance {get; set;}
+        public ModelInstanceAsset modelInstance {get; set;} = new();
         [TypeConverter(typeof(TikiTypeConverter))]
-        public TikiType type {get; set;}
-        public bool hover {get; set;}
-        public float distanceActivation {get; set;}
-        public float distanceExplosionActivation {get; set;}
-        public float explosionCountdownFromProximity {get; set;}
+        public TikiType type {get; set;} = TikiType.Regular;
+        public bool hover {get; set;} = new();
+        public float distanceActivation {get; set;} = new();
+        public float distanceExplosionActivation {get; set;} = new();
+        public float explosionCountdownFromProximity {get; set;} = new();
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong LandSoundFX {get; set;}
+        public ulong LandSoundFX {get; set;} = new();
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong collectibles {get; set;}
+        public ulong collectibles {get; set;} = new();
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong collectiblesHit {get; set;}
+        public ulong collectiblesHit {get; set;} = new();
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong collectiblesPlankton {get; set;}
+        public ulong collectiblesPlankton {get; set;} = new();
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong collectiblesPlanktonHit {get; set;}
+        public ulong collectiblesPlanktonHit {get; set;} = new();
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong destructible {get; set;}
+        public ulong destructible {get; set;} = new();
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong Animations {get; set;}
+        public ulong Animations {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew {get; set;}
+        public LinkAsset EventLinksNew {get; set;} = new();
+
+        public Tiki() : base(){}
 
 
         public Tiki(HoArchive.MemoryStreamEndian file) : base(file){
@@ -107,7 +109,6 @@ namespace SB09WiiAsset{
         }
         public Vector3 GetPosition()
         {
-            return new Vector3(Pos.x, Pos.y, Pos.z);
             return new Vector3(Pos.x, Pos.y, Pos.z);
         }
     }

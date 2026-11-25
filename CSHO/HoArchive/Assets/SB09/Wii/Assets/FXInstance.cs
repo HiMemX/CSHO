@@ -3,6 +3,9 @@ namespace SB09WiiAsset{
         public FXInstance(HoArchive.MemoryStreamEndian file){
         }
 
+        public FXInstance(){
+        }
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

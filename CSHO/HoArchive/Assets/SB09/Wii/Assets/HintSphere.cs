@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class HintSphere : Asset.AssetEntity{
+        public HintSphere(){
+        }
+
         public HintSphere(HoArchive.MemoryStreamEndian file){
         }
 

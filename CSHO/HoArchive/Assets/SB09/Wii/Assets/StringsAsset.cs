@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class StringsAsset : Asset.AssetEntity{
+        public StringsAsset(){
+        }
+
         public StringsAsset(HoArchive.MemoryStreamEndian file){
         }
 

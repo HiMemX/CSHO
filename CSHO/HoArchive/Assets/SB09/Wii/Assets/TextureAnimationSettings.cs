@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class TextureAnimationSettings : Asset.AssetEntity{
+        public TextureAnimationSettings(){
+        }
+
         public TextureAnimationSettings(HoArchive.MemoryStreamEndian file){
         }
 

@@ -3,11 +3,13 @@ using System.ComponentModel;
 namespace SB09WiiAsset{
     public class Direction : xBaseAsset{
         [TypeConverter(typeof(HoArchive.Point3Converter))]
-        public HoArchive.float3 location {get; set;}
+        public HoArchive.float3 location {get; set;} = new();
         [TypeConverter(typeof(HoArchive.Point3Converter))]
-        public HoArchive.float3 direction {get; set;}
+        public HoArchive.float3 direction {get; set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew {get; set;}
+        public LinkAsset EventLinksNew {get; set;} = new();
+
+        public Direction() : base(){}
 
         public Direction(HoArchive.MemoryStreamEndian file) : base(file){
             location = new HoArchive.float3(file);

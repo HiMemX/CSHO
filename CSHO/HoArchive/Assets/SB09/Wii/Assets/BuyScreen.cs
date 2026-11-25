@@ -3,6 +3,9 @@ namespace SB09WiiAsset{
         public BuyScreen(HoArchive.MemoryStreamEndian file){
         }
 
+        public BuyScreen(){
+        }
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

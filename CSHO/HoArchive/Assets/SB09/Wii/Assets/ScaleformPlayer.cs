@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class ScaleformPlayer : Asset.AssetEntity{
+        public ScaleformPlayer(){
+        }
+
         public ScaleformPlayer(HoArchive.MemoryStreamEndian file){
         }
 

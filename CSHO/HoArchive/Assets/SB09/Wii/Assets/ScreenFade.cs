@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class ScreenFade : Asset.AssetEntity{
+        public ScreenFade(){
+        }
+
         public ScreenFade(HoArchive.MemoryStreamEndian file){
         }
 

@@ -3,38 +3,40 @@ using System.ComponentModel;
 namespace SB09WiiAsset{
     public class Env : xBaseAsset{
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong bspAssetID {get; set;}
+        public ulong bspAssetID {get; set;} = 0;
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong StartCamera {get; set;}
-        public uint Climate {get; set;}
-        public float ClimateStrengthMin {get; set;}
-        public float ClimateStrengthMax {get; set;}
-        public uint flags {get; set;}
+        public ulong StartCamera {get; set;} = 0;
+        public uint Climate {get; set;} = 0;
+        public float ClimateStrengthMin {get; set;} = 0;
+        public float ClimateStrengthMax {get; set;} = 0;
+        public uint flags {get; set;} = 0;
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong bspCollisionAssetID {get; set;}
+        public ulong bspCollisionAssetID {get; set;} = 0;
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong bspFXAssetID {get; set;}
+        public ulong bspFXAssetID {get; set;} = 0;
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong bspCameraAssetID {get; set;}
+        public ulong bspCameraAssetID {get; set;} = 0;
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong bspMapperID {get; set;}
+        public ulong bspMapperID {get; set;} = 0;
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong bspMapperCollisionID {get; set;}
+        public ulong bspMapperCollisionID {get; set;} = 0;
         [TypeConverter(typeof(HoArchive.AssetIDConverter))]
-        public ulong bspMapperFXID {get; set;}
-        public float AdditionalLOLDHeight {get; set;}
+        public ulong bspMapperFXID {get; set;} = 0;
+        public float AdditionalLOLDHeight {get; set;} = 0;
         [TypeConverter(typeof(HoArchive.Point3Converter))]
-        public HoArchive.float3 MinBounds {get; set;}
+        public HoArchive.float3 MinBounds {get; set;} = new();
         [TypeConverter(typeof(HoArchive.Point3Converter))]
-        public HoArchive.float3 MaxBounds {get; set;}
-        public bool dofEnabled {get; set;}
-        public float dofBlur {get; set;}
-        public float dofNearFocusPoint {get; set;}
-        public float dofNearFocusFalloff {get; set;}
-        public float dofFarFocusPoint {get; set;}
-        public float dofFarFocusFalloff {get; set;}
+        public HoArchive.float3 MaxBounds {get; set;} = new();
+        public bool dofEnabled {get; set;} = false;
+        public float dofBlur {get; set;} = 0;
+        public float dofNearFocusPoint {get; set;} = 0;
+        public float dofNearFocusFalloff {get; set;} = 0;
+        public float dofFarFocusPoint {get; set;} = 0;
+        public float dofFarFocusFalloff {get; set;} = 0;
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew {get; set;}
+        public LinkAsset EventLinksNew {get; set;} = new();
+
+        public Env() : base(){}
 
         public Env(HoArchive.MemoryStreamEndian file) : base(file){
             bspAssetID = file.ReadUInt64E();

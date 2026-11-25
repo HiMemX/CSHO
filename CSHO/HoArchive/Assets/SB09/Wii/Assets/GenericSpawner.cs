@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class GenericSpawner : Asset.AssetEntity{
+        public GenericSpawner(){
+        }
+
         public GenericSpawner(HoArchive.MemoryStreamEndian file){
         }
 

@@ -2,17 +2,19 @@ using System.ComponentModel;
 
 namespace SB09WiiAsset{
     public class Camera_Tweak : xBaseAsset{
-        public int priority {get;set;}
-        public float time {get;set;}
-        public float pitch_adjust {get;set;}
-        public float dist_adjust {get;set;}
-        public float pivot_height_adjust {get;set;}
-        public float fov_adjust {get;set;}
+        public int priority {get;set;} = 0;
+        public float time {get;set;} = 0;
+        public float pitch_adjust {get;set;} = 0;
+        public float dist_adjust {get;set;} = 0;
+        public float pivot_height_adjust {get;set;} = 0;
+        public float fov_adjust {get;set;} = 0;
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public dirTweak dir_adjust {get;set;}
+        public dirTweak dir_adjust {get;set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew {get;set;}
+        public LinkAsset EventLinksNew {get;set;} = new();
 
+
+        public Camera_Tweak() : base(){}
         
         public Camera_Tweak(HoArchive.MemoryStreamEndian file) :base(file){
             priority = file.ReadInt32E();

@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class VertexDecl : Asset.AssetEntity{
+        public VertexDecl(){
+        }
+
         public VertexDecl(HoArchive.MemoryStreamEndian file){
         }
 

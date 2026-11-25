@@ -4,19 +4,21 @@ using HoArchive;
 namespace SB09WiiAsset{
     public class TriggerOG : xBaseAsset{
         [TypeConverter(typeof(enTriggerSubtypeConverter))]
-        public enTriggerSubtype subtype {get;set;}
-        public bool Targettable {get;set;}
+        public enTriggerSubtype subtype {get;set;} =  enTriggerSubtype.BOX;
+        public bool Targettable {get;set;} = new();
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew {get;set;}
+        public LinkAsset EventLinksNew {get;set;} = new();
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public TriggerSubtype triggerSubtype {get;set;}
+        public TriggerSubtype triggerSubtype {get;set;} = new TriggerBox();
 
         // Different from dwarf
         [TypeConverter(typeof(Point3Converter))]
-        public float3 Dir {get;set;}
+        public float3 Dir {get;set;} = new();
 
-        public int DirFlag {get;set;}
+        public int DirFlag {get;set;} = new();
+
+        public TriggerOG() : base(){}
 
         public TriggerOG(HoArchive.MemoryStreamEndian file) : base(file){
             subtype = (enTriggerSubtype)file.ReadByte();

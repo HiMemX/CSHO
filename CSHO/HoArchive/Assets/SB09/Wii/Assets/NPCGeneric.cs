@@ -7,54 +7,56 @@ namespace SB09WiiAsset
     public class NPCGeneric : xBaseAsset
     {
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public xEntAsset EntAsset { get; set; }
+        public xEntAsset EntAsset { get; set; } = new();
 
         // 0x110
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong LightKitID { get; set; }
+        public ulong LightKitID { get; set; } = 0;
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong ChrAssetID { get; set; }
+        public ulong ChrAssetID { get; set; } = 0;
         [TypeConverter(typeof(RGBA8888Converter))]
-        public uint shadowColor { get; set; }
-        public float shadowMaxDepth { get; set; }
-        public float shadowStartDepth { get; set; }
-        public uint shadowMinBlur { get; set; }
-        public uint shadowMaxBlur { get; set; }
+        public uint shadowColor { get; set; } = 0;
+        public float shadowMaxDepth { get; set; } = 0;
+        public float shadowStartDepth { get; set; } = 0;
+        public uint shadowMinBlur { get; set; } = 0;
+        public uint shadowMaxBlur { get; set; } = 0;
 
         // 0x138
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong NPCTemplate { get; set; }
-        public uint EnemyFlags { get; set; }
+        public ulong NPCTemplate { get; set; } = 0;
+        public uint EnemyFlags { get; set; } = 0;
 
         // 0x148
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong WallNet { get; set; }
+        public ulong WallNet { get; set; } = 0;
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong MovePoint { get; set; }
+        public ulong MovePoint { get; set; } = 0;
         [TypeConverter(typeof(AssetIDConverter))]
-        public ulong MovePointNetwork { get; set; }
-        public uint SpawnType { get; set; }
+        public ulong MovePointNetwork { get; set; } = 0;
+        public uint SpawnType { get; set; } = 0;
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public LinkAsset EventLinksNew { get; set; }
+        public LinkAsset EventLinksNew { get; set; } = new();
 
         //The following region (aswell as the 0x10 bytes before) are unknown.
-        public uint unknown0 { get; set; }
-        public uint unknown1 { get; set; }
-        public uint unknown2 { get; set; }
-        public uint unknown3 { get; set; }
-        public float unknown4 { get; set; }
-        public float unknown5 { get; set; }
-        public float unknown6 { get; set; }
-        public uint unknown7 { get; set; }
-        public uint unknown8 { get; set; }
-        public uint unknown9 { get; set; }
-        public uint unknown10 { get; set; }
-        public uint unknown11 { get; set; }
-        public float unknown12 { get; set; }
-        public float unknown13 { get; set; }
-        public uint unknown14 { get; set; }
-        public uint unknown15 { get; set; }
-        public uint unknown16 { get; set; }
+        public uint unknown0 { get; set; } = 0;
+        public uint unknown1 { get; set; } = 0;
+        public uint unknown2 { get; set; } = 0;
+        public uint unknown3 { get; set; } = 0;
+        public float unknown4 { get; set; } = 0;
+        public float unknown5 { get; set; } = 0;
+        public float unknown6 { get; set; } = 0;
+        public uint unknown7 { get; set; } = 0;
+        public uint unknown8 { get; set; } = 0;
+        public uint unknown9 { get; set; } = 0;
+        public uint unknown10 { get; set; } = 0;
+        public uint unknown11 { get; set; } = 0;
+        public float unknown12 { get; set; } = 0;
+        public float unknown13 { get; set; } = 0;
+        public uint unknown14 { get; set; } = 0;
+        public uint unknown15 { get; set; } = 0;
+        public uint unknown16 { get; set; } = 0;
+
+        public NPCGeneric() : base(){}
 
         public NPCGeneric(HoArchive.MemoryStreamEndian file) : base(file)
         {

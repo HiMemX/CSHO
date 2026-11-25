@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class Player : Asset.AssetEntity{
+        public Player(){
+        }
+
         public Player(HoArchive.MemoryStreamEndian file){
         }
 

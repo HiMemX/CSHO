@@ -3,6 +3,9 @@ namespace SB09WiiAsset{
         public BreakawayPlatform(HoArchive.MemoryStreamEndian file){
         }
 
+        public BreakawayPlatform(){
+        }
+
         public override void Update(HoArchive.TOCEntry entry){
         }
 

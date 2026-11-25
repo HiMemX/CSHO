@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class WaterWheel : Asset.AssetEntity{
+        public WaterWheel(){
+        }
+
         public WaterWheel(HoArchive.MemoryStreamEndian file){
         }
 

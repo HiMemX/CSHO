@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class Rumble : Asset.AssetEntity{
+        public Rumble(){
+        }
+
         public Rumble(HoArchive.MemoryStreamEndian file){
         }
 

@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class InWorldIconWidget : Asset.AssetEntity{
+        public InWorldIconWidget(){
+        }
+
         public InWorldIconWidget(HoArchive.MemoryStreamEndian file){
         }
 

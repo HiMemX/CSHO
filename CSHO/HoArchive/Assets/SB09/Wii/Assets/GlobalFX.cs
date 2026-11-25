@@ -1,5 +1,8 @@
 namespace SB09WiiAsset{
     public class GlobalFX : Asset.AssetEntity{
+        public GlobalFX(){
+        }
+
         public GlobalFX(HoArchive.MemoryStreamEndian file){
         }
 

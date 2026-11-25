@@ -4,6 +4,9 @@ using System.Linq;
 namespace SB09WiiAsset{
     public class RawBlob : Asset.AssetEntity{
         public List<byte> data = new();
+
+        public RawBlob(){}
+
         public RawBlob(HoArchive.MemoryStreamEndian file)
         {
             data = file.ReadBytes((int)file.Length).ToList();
